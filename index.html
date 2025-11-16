@@ -165,51 +165,6 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     
-    <!-- Script para el acordeón Sobre mí -->
-    <script>
-        function toggleSobreMi() {
-            const contenido = document.getElementById('contenidoSobreMi');
-            const boton = document.querySelector('.btn-sobre-mi');
-            
-            contenido.classList.toggle('activo');
-            boton.classList.toggle('activo');
-        }
-    </script>
-
-    <!-- Script: genera gotas de lluvia en .rain-background -->
-    <script>
-    (function initRain(){
-        const container = document.querySelector('.rain-background');
-        if(!container) return;
-        container.innerHTML = '';
-        const dropsCount = Math.min(Math.max(Math.floor(window.innerWidth / 8), 40), 140); // adaptativo según ancho
-        for(let i=0;i<dropsCount;i++){
-            const d = document.createElement('div');
-            d.className = 'drop';
-            const left = Math.random() * 100;                    // posición horizontal %
-            const width = (Math.random() * 1.8) + 0.6;           // ancho en px
-            const height = (Math.random() * 80) + 10;            // alto en px
-            const duration = (Math.random() * 1.8) + 0.9;        // duración en s
-            const delay = -Math.random() * 20;                   // arranque distribuido en s (negativo para empezar ya)
-            const opacity = 0.25 + Math.random() * 0.75;
-
-            d.style.left = left + '%';
-            d.style.width = width + 'px';
-            d.style.height = height + 'px';
-            d.style.animationDuration = duration + 's';
-            d.style.animationDelay = delay + 's';
-            d.style.opacity = opacity;
-
-            container.appendChild(d);
-        }
-
-        // Regenerar al redimensionar para mantener densidad adecuada
-        let resizeTimer;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(initRain, 300);
-        });
-    })();
     </script>
 </body>
 </html>
