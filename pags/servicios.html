@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Servicios - RAINSTORM</title>
+    
+    <!-- Fuente -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <!-- Header con menú desplegable -->
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold" href="../index.html">RAINSTORM</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Alternar navegación">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="https://img.icons8.com/?size=24&id=44024&format=png&color=E6EEF7" alt="Menú" class="icono-menu">
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="../index.html">Inicio</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="objetivos.html">Objetivo</a></li>
+                                <li><a class="dropdown-item" href="apps.html">Apps</a></li>
+                                <li><a class="dropdown-item active" href="servicios.html">Servicios</a></li>
+                                <li><a class="dropdown-item" href="unete.html">Únete</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section id="seccion-servicios-form">
+        <h2>Solicita un Presupuesto</h2>
+        <p style="margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">Completa el siguiente formulario y nos pondremos en contacto contigo:</p>
+        
+        <div class="contenedor-servicios-form">
+            <div class="columna-tiempo">
+                <h3>¿En cuánto tiempo necesitas el trabajo?</h3>
+                <div class="opciones-tiempo">
+                    <label class="opcion-tiempo">
+                        <input type="radio" name="tiempo" value="5 días" required>
+                        <span>5 días</span>
+                    </label>
+                    <label class="opcion-tiempo">
+                        <input type="radio" name="tiempo" value="1 semana" required>
+                        <span>1 semana</span>
+                    </label>
+                    <label class="opcion-tiempo">
+                        <input type="radio" name="tiempo" value="2 semanas" required>
+                        <span>2 semanas</span>
+                    </label>
+                    <label class="opcion-tiempo">
+                        <input type="radio" name="tiempo" value="3 semanas" required>
+                        <span>3 semanas</span>
+                    </label>
+                    <label class="opcion-tiempo">
+                        <input type="radio" name="tiempo" value="4 semanas" required>
+                        <span>4 semanas</span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="columna-formulario">
+                <h3>Datos de Contacto</h3>
+                <form action="https://formspree.io/f/2867575805351820738" method="POST">
+                    <label for="nombre-servicio">Nombre:</label>
+                    <input type="text" id="nombre-servicio" name="nombre" required>
+
+                    <label for="email-servicio">Email:</label>
+                    <input type="email" id="email-servicio" name="email" required>
+
+                    <label for="descripcion">Descríbenos en qué necesitas que te ayudemos:</label>
+                    <textarea id="descripcion" name="descripcion" rows="8" required></textarea>
+
+                    <input type="hidden" name="tiempo-seleccionado" id="tiempo-seleccionado">
+
+                    <button type="submit">Enviar Solicitud</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>© RAINSTORM</footer>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    
+    <!-- Script para capturar el tiempo seleccionado -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('#seccion-servicios-form form');
+            const tiempoInputs = document.querySelectorAll('input[name="tiempo"]');
+            const tiempoHidden = document.getElementById('tiempo-seleccionado');
+            
+            form.addEventListener('submit', function(e) {
+                const tiempoSeleccionado = document.querySelector('input[name="tiempo"]:checked');
+                if (tiempoSeleccionado) {
+                    tiempoHidden.value = tiempoSeleccionado.value;
+                }
+            });
+            
+            // Actualizar el valor oculto cuando cambie la selección
+            tiempoInputs.forEach(input => {
+                input.addEventListener('change', function() {
+                    tiempoHidden.value = this.value;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
