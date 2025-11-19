@@ -53,20 +53,20 @@
         <h1>RAIN</h1>
         <p class="hero-subtitle">real &amp; artificial intelligence for neuroscience</p>
 
-        <!-- Carrusel de imágenes -->
-        <div id="carouselExampleIndicators" class="carousel slide rounded-3 overflow-hidden shadow-lg my-5" data-bs-ride="carousel">
+        <!-- Carrusel de videos -->
+        <div id="carouselExampleIndicators" class="carousel slide rounded-3 overflow-hidden shadow-lg my-5 video-carousel" data-bs-ride="carousel" data-bs-interval="5000">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <video class="d-block w-100" controls>
+                    <video class="carousel-video" autoplay muted loop playsinline>
                         <source src="img/video.1.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="carousel-item">
-                    <video class="d-block w-100" controls>
+                    <video class="carousel-video" autoplay muted loop playsinline>
                         <source src="img/video.2.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -165,5 +165,36 @@
     
     <!-- Scripts personalizados -->
     <script src="js/main.js"></script>
+    
+    <!-- Script para autoplay de videos en carrusel -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.getElementById('carouselExampleIndicators');
+            if (carousel) {
+                const videos = carousel.querySelectorAll('video');
+                
+                // Reproducir el primer video al cargar
+                if (videos.length > 0) {
+                    videos[0].play().catch(e => console.log('Autoplay bloqueado:', e));
+                }
+                
+                // Evento cuando cambia el slide
+                carousel.addEventListener('slid.bs.carousel', function(event) {
+                    // Pausar todos los videos
+                    videos.forEach(video => {
+                        video.pause();
+                        video.currentTime = 0;
+                    });
+                    
+                    // Reproducir el video del slide activo
+                    const activeSlide = event.relatedTarget;
+                    const activeVideo = activeSlide.querySelector('video');
+                    if (activeVideo) {
+                        activeVideo.play().catch(e => console.log('Autoplay bloqueado:', e));
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>

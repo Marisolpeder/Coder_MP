@@ -12,7 +12,7 @@ function toggleSobreMi() {
 }
 
 // =====================================================
-//   EFECTO DE LLUVIA - GENERA GOTAS DE COLORES
+//   EFECTO DE LLUVIA
 // =====================================================
 function initRain(){
     const container = document.querySelector('.rain-background');

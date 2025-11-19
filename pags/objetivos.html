@@ -2,42 +2,45 @@
 <html lang="es">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Objetivo - RAINSTORM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Objetivo - RAIN</title>
+    <subtitle>Real & Artificial Intelligence for neuroscience.</subtitle>
+    <!-- Tailwind CSS (reemplaza a Bootstrap CSS para estilos) -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Fuente -->
+    <!-- Fuente Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     
     <!-- Estilos personalizados -->
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<body class="static-dots-background">
+<body class="selection:bg-accent selection:text-black static-dots-background">
 
-    <!-- Header con menú desplegable -->
-    <header class="main-header">
-        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-            <div class="container-fluid">
-                <a class="navbar-brand fw-bold" href="../index.html">RAIN</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Alternar navegación">
-                    <span class="navbar-toggler-icon"></span>
+    <!-- Header con menú desplegable (Se mantiene la funcionalidad de Bootstrap JS) -->
+    <header class="shadow-xl bg-gray-900 sticky top-0 z-10">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container mx-auto px-4 py-3">
+                <!-- Se eliminó el icono del cerebro -->
+                <a class="navbar-brand fw-bold text-2xl text-accent hover:text-white transition duration-300" href="../index.html">
+                    RAIN
+                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Alternar navegación">
+                    <span class="text-white text-2xl">☰</span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="mainNavbar">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="https://img.icons8.com/?size=24&id=44024&format=png&color=E6EEF7" alt="Menú" class="icono-menu">
+                            <a class="nav-link dropdown-toggle text-white hover:text-accent focus:text-accent transition duration-300" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Menú
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="../index.html">Inicio</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item active" href="objetivos.html">Objetivo</a></li>
-                                <li><a class="dropdown-item" href="apps.html">Apps</a></li>
-                                <li><a class="dropdown-item" href="servicios.html">Servicios</a></li>
-                                <li><a class="dropdown-item" href="unete.html">Únete</a></li>
+                            <ul class="dropdown-menu dropdown-menu-end bg-gray-800 border-gray-700 shadow-xl" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item text-white hover:bg-gray-700 transition duration-300" href="../index.html">🏠 Inicio</a></li>
+                                <li><hr class="dropdown-divider border-gray-700"></li>
+                                <li><a class="dropdown-item active bg-gray-700 text-accent" href="objetivos.html">🎯 Objetivo</a></li>
+                                <li><a class="dropdown-item text-white hover:bg-gray-700 transition duration-300" href="apps.html">📱 Apps</a></li>
+                                <li><a class="dropdown-item text-white hover:bg-gray-700 transition duration-300" href="servicios.html">⚙️ Servicios</a></li>
+                                <li><a class="dropdown-item text-white hover:bg-gray-700 transition duration-300" href="unete.html">🤝 Únete</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -46,64 +49,100 @@
         </nav>
     </header>
    
-    <main>
-        <h1>Objetivo de RAIN</h1>
-        <p>Nuestro servicio se enfoca en transformar su protocolo de investigación manual o tedioso en una herramienta de análisis automatizada, precisa y escalable, al igual que hicimos con RAINSTORM. Nos especializamos en el desarrollo de software científico a medida, utilizando Inteligencia Artificial (IA) y aprendizaje automático para llevar sus datos al siguiente nivel. </p>
+    <!-- Contenido Principal Mejorado -->
+    <main class="container mx-auto px-4 py-12 flex-grow">
+        <!-- Título Principal y Resumen -->
+        <div class="text-center mb-16">
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-4 leading-tight text-white">
+                <span class="text-accent">Objetivo</span> de RAIN
+            </h1>
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                Transformamos su protocolo de investigación manual o tedioso en una herramienta de análisis automatizada, precisa y escalable, impulsada por Inteligencia Artificial y aprendizaje automático.
+            </p>
+        </div>
 
-        <hr class="separador">
+        <hr class="border-gray-700 my-10">
 
-        <h2>Nuestra Propuesta</h2>
-        <P>Hemos demostrado, a través de RAIN, que la IA puede automatizar el análisis conductual complejo, ofreciendo precisión y eficiencia inigualables. Ofrecemos la creación de herramientas personalizadas que le permitirán:</P>
-        <ul>
-            <li>Ahorrar Tiempo Crítico: Reduzca el tiempo de análisis de horas a minutos, liberando a su equipo para enfocarse en la interpretación y el diseño experimental.</li>
-            <li>Garantizar Precisión y Objetividad: Elimine el error humano y el sesgo de observación mediante algoritmos de visión por computadora y Redes Neuronales.</li>
-            <li>Obtener Métricas Novedosas: Diseñamos el software para extraer exactamente las métricas que su investigación requiere, no solo las que la herramienta predeterminada le permite.</li>
-            <li>Acelerar la Publicación: Con datos validados por IA y un proceso de análisis reproducible, sus resultados serán más robustos y su camino a la publicación, más ágil.</li>
-        </ul>
+        <!-- Sección de Propuesta con Tarjetas (NUEVO DISEÑO) -->
+        <h2 class="text-3xl font-bold text-center mb-10 text-white">Nuestra Propuesta de Valor</h2>
+        <p class="text-center text-gray-400 mb-12 max-w-4xl mx-auto">
+            Hemos demostrado, a través de RAIN, que la IA puede automatizar el análisis conductual complejo, ofreciendo precisión y eficiencia inigualables. Con nuestras soluciones personalizadas, usted podrá:
+        </p>
 
-        <hr class="separador">
-  <!-- Script para el acordeón Sobre mí -->
-  <script>
-    function toggleSobreMi() {
-        const contenido = document.getElementById('contenidoSobreMi');
-        const boton = document.querySelector('.btn-sobre-mi');
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            
+            <!-- Tarjeta 1: Ahorro de Tiempo -->
+            <!-- Los iconos de las tarjetas ahora usan el color secundario (Azul claro) -->
+            <div class="bg-card p-6 rounded-xl shadow-lg border border-gray-700 hover:border-accent transform hover:scale-[1.02] transition duration-300">
+                <div class="text-4xl mb-3" style="color: var(--color-secondary-light);">⏱️</div>
+                <h3 class="text-xl font-bold mb-2 text-white">Ahorrar Tiempo Crítico</h3>
+                <p class="text-gray-400">Reduzca el tiempo de análisis de horas a minutos, liberando a su equipo para enfocarse en la interpretación y el diseño experimental, no en el conteo manual de datos.</p>
+            </div>
+
+            <!-- Tarjeta 2: Precisión y Objetividad -->
+            <div class="bg-card p-6 rounded-xl shadow-lg border border-gray-700 hover:border-accent transform hover:scale-[1.02] transition duration-300">
+                <div class="text-4xl mb-3" style="color: var(--color-secondary-light);">✅</div>
+                <h3 class="text-xl font-bold mb-2 text-white">Garantizar Precisión y Objetividad</h3>
+                <p class="text-gray-400">Elimine el error humano y el sesgo de observación mediante algoritmos de visión por computadora y Redes Neuronales entrenadas con sus datos específicos.</p>
+            </div>
+
+            <!-- Tarjeta 3: Métricas Novedosas -->
+            <div class="bg-card p-6 rounded-xl shadow-lg border border-gray-700 hover:border-accent transform hover:scale-[1.02] transition duration-300">
+                <div class="text-4xl mb-3" style="color: var(--color-secondary-light);">💡</div>
+                <h3 class="text-xl font-bold mb-2 text-white">Obtener Métricas Novedosas</h3>
+                <p class="text-gray-400">Diseñamos el software para extraer exactamente las métricas que su investigación requiere, adaptándonos a la complejidad única de su protocolo científico.</p>
+            </div>
+
+            <!-- Tarjeta 4: Acelerar la Publicación -->
+            <div class="bg-card p-6 rounded-xl shadow-lg border border-gray-700 hover:border-accent transform hover:scale-[1.02] transition duration-300">
+                <div class="text-4xl mb-3" style="color: var(--color-secondary-light);">🚀</div>
+                <h3 class="text-xl font-bold mb-2 text-white">Acelerar la Publicación</h3>
+                <p class="text-gray-400">Con datos validados por IA y un proceso de análisis reproducible, sus resultados serán más robustos y su camino a la publicación, más ágil y seguro.</p>
+            </div>
+        </div>
+
+        <!-- Llamada a la Acción (CTA) -->
+        <div class="text-center mt-16 mb-20">
+            <h2 class="text-4xl font-bold mb-4 text-white">¿Listo para Automatizar su Investigación?</h2>
+            <p class="text-lg text-gray-400 mb-6">Contáctenos hoy para una consulta gratuita y descubra cómo la IA puede transformar su flujo de trabajo científico.</p>
+            <a href="unete.html" class="inline-block px-12 py-4 rounded-full font-extrabold uppercase tracking-wider btn-primary-cta shadow-2xl">
+                ¡Comience Ahora!
+            </a>
+        </div>
         
-        contenido.classList.toggle('activo');
-        boton.classList.toggle('activo');
-    }
-</script>
-
+        <hr class="border-gray-700 my-10">
+        
         <!-- Sección Sobre mí / Sobre mi proyecto -->
-        <div class="seccion-sobre-mi">
+        <div class="seccion-sobre-mi max-w-4xl mx-auto">
             <button class="btn-sobre-mi" onclick="toggleSobreMi()">
                 <span> Sobre mi proyecto / Sobre mí </span>
                 <span class="icono-toggle">▼</span>
             </button>
-            <div class="contenido-sobre-mi" id="contenidoSobreMi">
-                <div class="texto-presentacion">
-                    <p>RAIN es un proyecto de desarrollo de software y análisis de datos. Si queres saber quien soy y mi proyecto, haz click en el botón de abajo.</p>
+            <div class="contenido-sobre-mi bg-gray-800 p-6 rounded-b-xl border border-t-0 border-gray-700" id="contenidoSobreMi">
+                <div class="texto-presentacion mb-8">
+                    <p class="text-gray-300">RAIN es un proyecto de desarrollo de software y análisis de datos. Si quieres saber quién soy y mi proyecto, haz click en el botón de abajo.</p>
                 </div>
                 <div class="enlaces-externos">
-                    <h2>Encuéntrame en:</h2>
-                    <div class="lista-enlaces">
-                        <a href="https://ar.linkedin.com/in/santiago-d-hers-22b052178" target="_blank" class="enlace-externo">
-                            <span class="icono-enlace">🔗</span>
+                    <h2 class="text-xl font-semibold mb-4 text-accent">Encuéntrame en:</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <a href="https://ar.linkedin.com/in/santiago-d-hers-22b052178" target="_blank" class="enlace-externo bg-gray-900 p-3 rounded-lg flex items-center hover:bg-gray-700 transition duration-200">
+                            <span class="text-2xl mr-2">💼</span>
                             LinkedIn
                         </a>
-                        <a href="https://pypi.org/project/rainstorm/" target="_blank" class="enlace-externo">
-                            <span class="icono-enlace">🔗</span>
+                        <a href="https://pypi.org/project/rainstorm/" target="_blank" class="enlace-externo bg-gray-900 p-3 rounded-lg flex items-center hover:bg-gray-700 transition duration-200">
+                            <span class="text-2xl mr-2">🐍</span>
                             PyPI
                         </a>
-                        <a href="https://currentprotocols.onlinelibrary.wiley.com/doi/abs/10.1002/cpz1.70171" target="_blank" class="enlace-externo">
-                            <span class="icono-enlace">🔗</span>
+                        <a href="https://currentprotocols.onlinelibrary.wiley.com/doi/abs/10.1002/cpz1.70171" target="_blank" class="enlace-externo bg-gray-900 p-3 rounded-lg flex items-center hover:bg-gray-700 transition duration-200">
+                            <span class="text-2xl mr-2">📄</span>
                             Portfolio
                         </a>
-                        <a href="https://github.com/sdhers/RAINSTORM" target="_blank" class="enlace-externo">
-                            <span class="icono-enlace">🔗</span>
+                        <a href="https://github.com/sdhers/RAINSTORM" target="_blank" class="enlace-externo bg-gray-900 p-3 rounded-lg flex items-center hover:bg-gray-700 transition duration-200">
+                            <span class="text-2xl mr-2">💻</span>
                             GitHub
                         </a>
-                        <a href="https://www.youtube.com/@sdhers" target="_blank" class="enlace-externo">
-                            <span class="icono-enlace">🔗</span>
+                        <a href="https://www.youtube.com/@sdhers" target="_blank" class="enlace-externo bg-gray-900 p-3 rounded-lg flex items-center hover:bg-gray-700 transition duration-200">
+                            <span class="text-2xl mr-2">▶️</span>
                             Youtube
                         </a>
                     </div>
@@ -113,11 +152,25 @@
         
     </main>
 
-    <footer>© RAIN</footer>
+    <!-- Footer -->
+    <footer class="text-center py-6 border-t border-gray-700 bg-gray-900 text-gray-500 mt-12">
+        <p class="text-sm">© RAIN | Software Científico y Análisis de Datos con IA</p>
+    </footer>
     
-    <!-- Bootstrap JS -->
+    <!-- Script para el acordeón Sobre mí (Mantenemos la función) -->
+    <script>
+        // Función para alternar el acordeón
+        function toggleSobreMi() {
+            const contenido = document.getElementById('contenidoSobreMi');
+            const boton = document.querySelector('.btn-sobre-mi');
+            
+            contenido.classList.toggle('activo');
+            boton.classList.toggle('activo');
+        }
+    </script>
+    
+    <!-- Bootstrap JS (Solo para funcionalidad del Navbar/Dropdown) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    
 
 </body>
 </html>
