@@ -24,15 +24,26 @@ html, body {
 
 body {
     background-color: #000033;
+    /* Los puntos de colores ahora son gotas de lluvia animadas */
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+/* Fondo estático de puntos para páginas secundarias */
+body.static-dots-background {
     background-image: 
         radial-gradient(circle at 20% 30%, rgba(233, 154, 35, 0.4) 1px, transparent 2px),
         radial-gradient(circle at 60% 80%, rgba(235, 46, 61, 0.5) 1.5px, transparent 3px),
         radial-gradient(circle at 30% 50%, rgba(52, 211, 153, 0.3) 1px, transparent 2.5px),
         radial-gradient(circle at 80% 30%, rgba(251, 191, 36, 0.6) 1.2px, transparent 3.5px);
     background-size: 100px 100px;
-    color: var(--text);
-    overflow-x: hidden;
-}/* Contenedor del efecto de lluvia */
+}
+
+/* =====================================================
+   EFECTO DE LLUVIA ANIMADA (solo en index.html)
+===================================================== */
+
+/* Contenedor del efecto de lluvia */
 .rain-background {
     position: fixed;
     top: 0;
@@ -45,33 +56,17 @@ body {
     background: transparent;
 }
 
-/* Gotas individuales generadas por JS */
+/* Gotas individuales generadas por JS - puntos de colores */
 .rain-background .drop {
     position: absolute;
     top: -10vh;
-    background: linear-gradient(180deg, rgba(230,238,247,0.95), rgba(230,238,247,0.12));
-    border-radius: 2px;
+    border-radius: 50%;
     transform: translateY(0);
     animation-name: rain-fall;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     will-change: transform, opacity;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-}
-
-/* Pequeño salpicado al caer (opcional, muy sutil) */
-.rain-background .drop::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -4px;
-    width: 6px;
-    height: 2px;
-    border-radius: 50%;
-    background: rgba(230,238,247,0.1);
-    opacity: 0;
-    transition: opacity 0.15s;
+    box-shadow: 0 0 4px rgba(255,255,255,0.3);
 }
 
 /* Animación principal: baja de arriba hacia abajo */
