@@ -2,36 +2,30 @@
 <html lang="es">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Objetivo - RAINSTORM</title>
-    
-    <!-- Fuente -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Objetivo - RAIN</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    
-    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-    
-    <!-- Estilos personalizados -->
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body class="static-dots-background">
 
-    <!-- Header con menú desplegable -->
     <header class="main-header">
         <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
             <div class="container-fluid">
                 <a class="navbar-brand fw-bold" href="../index.html">RAIN</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Alternar navegación">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="mainNavbar">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
                                 <img src="https://img.icons8.com/?size=24&id=44024&format=png&color=E6EEF7" alt="Menú" class="icono-menu">
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <ul class="dropdown-menu dropdown-menu-end">
                                 <li><a class="dropdown-item" href="../index.html">Inicio</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item active" href="objetivos.html">Objetivo</a></li>
@@ -48,32 +42,43 @@
    
     <main>
         <h1>Objetivo de RAIN</h1>
-        <p>Nuestro servicio se enfoca en transformar su protocolo de investigación manual o tedioso en una herramienta de análisis automatizada, precisa y escalable, al igual que hicimos con RAINSTORM. Nos especializamos en el desarrollo de software científico a medida, utilizando Inteligencia Artificial (IA) y aprendizaje automático para llevar sus datos al siguiente nivel. </p>
+        <p class="hero-subtitle">Real & Artificial Intelligence for neuroscience</p>
+        <p>Transformamos su protocolo de investigación manual en una herramienta automatizada.</p>
 
         <hr class="separador">
 
-        <h2>Nuestra Propuesta</h2>
-        <P>Hemos demostrado, a través de RAIN, que la IA puede automatizar el análisis conductual complejo, ofreciendo precisión y eficiencia inigualables. Ofrecemos la creación de herramientas personalizadas que le permitirán:</P>
-        <ul>
-            <li>Ahorrar Tiempo Crítico: Reduzca el tiempo de análisis de horas a minutos, liberando a su equipo para enfocarse en la interpretación y el diseño experimental.</li>
-            <li>Garantizar Precisión y Objetividad: Elimine el error humano y el sesgo de observación mediante algoritmos de visión por computadora y Redes Neuronales.</li>
-            <li>Obtener Métricas Novedosas: Diseñamos el software para extraer exactamente las métricas que su investigación requiere, no solo las que la herramienta predeterminada le permite.</li>
-            <li>Acelerar la Publicación: Con datos validados por IA y un proceso de análisis reproducible, sus resultados serán más robustos y su camino a la publicación, más ágil.</li>
-        </ul>
+        <h2>Nuestra Propuesta de Valor</h2>
+        <div class="objetivos-grid">
+            <div class="objetivo-card">
+                <span class="objetivo-icono" style="color: var(--color-secondary-light);">⏱️</span>
+                <h3>Ahorrar Tiempo</h3>
+                <p>Reduzca el tiempo de análisis de horas a minutos.</p>
+            </div>
+            <div class="objetivo-card">
+                <span class="objetivo-icono" style="color: var(--color-secondary-light);">✅</span>
+                <h3>Precisión</h3>
+                <p>Elimine el error humano mediante visión por computadora.</p>
+            </div>
+            <div class="objetivo-card">
+                <span class="objetivo-icono" style="color: var(--color-secondary-light);">💡</span>
+                <h3>Métricas</h3>
+                <p>Extraemos exactamente las métricas que su investigación requiere.</p>
+            </div>
+            <div class="objetivo-card">
+                <span class="objetivo-icono" style="color: var(--color-secondary-light);">🚀</span>
+                <h3>Publicación</h3>
+                <p>Resultados más robustos y un camino a la publicación más ágil.</p>
+            </div>
+        </div>
 
-        <hr class="separador">
-  <!-- Script para el acordeón Sobre mí -->
-  <script>
-    function toggleSobreMi() {
-        const contenido = document.getElementById('contenidoSobreMi');
-        const boton = document.querySelector('.btn-sobre-mi');
+        <div class="cta-section">
+            <h2>¿Listo para Automatizar?</h2>
+            <p>Contáctenos hoy para una consulta gratuita.</p>
+            <a href="unete.html" class="btn-cta">¡Comience Ahora!</a>
+        </div>
         
-        contenido.classList.toggle('activo');
-        boton.classList.toggle('activo');
-    }
-</script>
-
-        <!-- Sección Sobre mí / Sobre mi proyecto -->
+        <hr class="separador">
+        
         <div class="seccion-sobre-mi">
             <button class="btn-sobre-mi" onclick="toggleSobreMi()">
                 <span> Sobre mi proyecto / Sobre mí </span>
@@ -81,43 +86,26 @@
             </button>
             <div class="contenido-sobre-mi" id="contenidoSobreMi">
                 <div class="texto-presentacion">
-                    <p>RAIN es un proyecto de desarrollo de software y análisis de datos. Si queres saber quien soy y mi proyecto, haz click en el botón de abajo.</p>
+                    <p>RAIN es un proyecto de desarrollo de software y análisis de datos...</p>
                 </div>
                 <div class="enlaces-externos">
-                    <h2>Encuéntrame en:</h2>
+                    <h4>Encuéntrame en:</h4>
                     <div class="lista-enlaces">
                         <a href="https://ar.linkedin.com/in/santiago-d-hers-22b052178" target="_blank" class="enlace-externo">
-                            <span class="icono-enlace">🔗</span>
-                            LinkedIn
+                            <span class="icono-enlace">💼</span> LinkedIn
                         </a>
-                        <a href="https://pypi.org/project/rainstorm/" target="_blank" class="enlace-externo">
-                            <span class="icono-enlace">🔗</span>
-                            PyPI
-                        </a>
-                        <a href="https://currentprotocols.onlinelibrary.wiley.com/doi/abs/10.1002/cpz1.70171" target="_blank" class="enlace-externo">
-                            <span class="icono-enlace">🔗</span>
-                            Portfolio
-                        </a>
-                        <a href="https://github.com/sdhers/RAINSTORM" target="_blank" class="enlace-externo">
-                            <span class="icono-enlace">🔗</span>
-                            GitHub
-                        </a>
-                        <a href="https://www.youtube.com/@sdhers" target="_blank" class="enlace-externo">
-                            <span class="icono-enlace">🔗</span>
-                            Youtube
-                        </a>
-                    </div>
+                        </div>
                 </div>
             </div>
         </div>
-        
+
     </main>
 
-    <footer>© RAIN</footer>
+    <footer><p>© RAIN | Software Científico y Análisis de Datos con IA</p></footer>
     
-    <!-- Bootstrap JS -->
+     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    
+    <script src="../js/main.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,20 @@
+# RAIN - Real & Artificial Intelligence for Neuroscience
+
+## Descripción del Proyecto
+RAIN es una plataforma web dedicada a la intersección entre la neurociencia y la inteligencia artificial. El objetivo es ofrecer herramientas de software (STORM, SIMON, DROP) para automatizar análisis científicos.
+
+## Tecnologías Utilizadas
+- HTML5 Semántico
+- CSS3 (Variables, Flexbox, Grid, Animaciones)
+- Bootstrap 5.3
+- JavaScript (Lógica del DOM, validaciones y efectos visuales)
+
+## Estructura del Sitio
+- **Inicio:** Presentación visual y carrusel de videos.
+- **Objetivos:** Misión del proyecto con grids informativos.
+- **Apps:** Catálogo de aplicaciones disponibles.
+- **Servicios:** Formulario para solicitar presupuestos.
+- **Únete:** Formulario de contacto y carga de CV.
+
+## Estado del Proyecto
+Preentrega 2 - Coderhouse. Estructura avanzada y estilos definidos.
