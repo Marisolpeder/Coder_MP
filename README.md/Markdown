@@ -16,5 +16,12 @@ RAIN es una plataforma web dedicada a la intersección entre la neurociencia y l
 - **Servicios:** Formulario para solicitar presupuestos.
 - **Únete:** Formulario de contacto y carga de CV.
 
+## Estructura SASS
+El proyecto utiliza un archivo maestro `style.scss` que implementa:
+- **Variables:** Para paleta de colores y tipografías.
+- **Mixins:** Para efectos de cristal (Glassmorphism) y animaciones.
+- **Nesting:** Para una estructura de código limpia en el Navbar y Cards.
+- **Operadores/Bucles:** Utilizados para generar estilos repetitivos.
+
 ## Estado del Proyecto
 Preentrega 2 - Coderhouse. Estructura avanzada y estilos definidos.

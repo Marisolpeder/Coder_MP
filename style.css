@@ -1,5 +1,6 @@
 /* =====================================================
-   RAIN - HOJA DE ESTILOS SASS
+   RAIN - HOJA DE ESTILOS SASS (MASTER)
+   Preentrega 3 - Coderhouse
 ===================================================== */
 * {
   box-sizing: border-box;
@@ -130,8 +131,7 @@ main {
   right: 0;
   z-index: 100;
   background: rgba(32, 32, 136, 0.95);
-  -webkit-backdrop-filter: blur(8px);
-          backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
@@ -175,8 +175,7 @@ main {
 
 .dropdown-menu {
   background: rgba(12, 20, 60, 0.98);
-  -webkit-backdrop-filter: blur(12px);
-          backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 6px 20px rgba(43, 77, 228, 0.35);
   margin-top: 10px;
@@ -209,8 +208,7 @@ main {
 }
 .nav-grid .nav-card {
   background: rgba(12, 20, 60, 0);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 6px 20px rgba(43, 77, 228, 0.35);
   display: flex;
@@ -253,8 +251,7 @@ main {
 .carousel-item img, .carousel-item video, .carousel-video {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   display: block;
 }
 
@@ -270,8 +267,7 @@ main {
 }
 .card .card-img-top {
   height: 300px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-radius: 10px 10px 0 0;
 }
 .card .card-title {
@@ -294,8 +290,7 @@ main {
 
 #seccion-apps {
   background: rgba(12, 20, 60, 0.6);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 6px 20px rgba(43, 77, 228, 0.35);
   background: linear-gradient(135deg, rgba(10, 61, 98, 0.4), rgba(32, 32, 136, 0.4));
@@ -314,8 +309,7 @@ main {
 
 .fila-app {
   background: rgba(12, 20, 60, 0.6);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 6px 20px rgba(43, 77, 228, 0.35);
   display: grid;
@@ -345,8 +339,7 @@ main {
 .fila-app .imagen-app {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   transition: transform 0.5s ease;
 }
 .fila-app .columna-info h3 {
@@ -413,8 +406,7 @@ main {
 
 .objetivo-card {
   background: rgba(12, 20, 60, 0);
-  -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 6px 20px rgba(43, 77, 228, 0.35);
   padding: 24px;
@@ -441,8 +433,7 @@ main {
 
 #seccion-contacto, #seccion-servicios-form {
   background: rgba(12, 20, 60, 0.6);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 6px 20px rgba(43, 77, 228, 0.35);
   background: linear-gradient(135deg, rgba(10, 61, 98, 0.4), rgba(32, 32, 136, 0.4));
@@ -471,8 +462,7 @@ main {
 
 .formulario, .columna-tiempo, .columna-formulario {
   background: rgba(12, 20, 60, 0.6);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 6px 20px rgba(43, 77, 228, 0.35);
   padding: 40px;
@@ -594,8 +584,7 @@ footer {
 .btn-sobre-mi {
   width: 100%;
   background: rgba(12, 20, 60, 0.6);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 6px 20px rgba(43, 77, 228, 0.35);
   padding: 20px 30px;
@@ -620,8 +609,7 @@ footer {
   overflow: hidden;
   transition: max-height 0.4s ease, padding 0.4s ease;
   background: rgba(12, 20, 60, 0.4);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 6px 20px rgba(43, 77, 228, 0.35);
   margin-top: 15px;
@@ -681,4 +669,6 @@ footer {
     width: 100%;
     align-self: center;
   }
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */
