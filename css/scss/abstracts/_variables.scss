@@ -1,0 +1,47 @@
+// Paleta de Colores
+$color-bg: #000033;
+$color-text: #E6EEF7;
+$color-text-muted: rgba(230, 238, 247, 0.85);
+
+// Colores de estado
+$color-success: #124dbb;  // Verde para éxito
+$color-danger: #0f7adf;   // Rojo para errores
+$color-warning: #becbcc;  // Amarillo para advertencias
+$color-info: #080bc9;     // Azul para información
+
+// Acentos y Gradientes
+$color-accent-start: #7dd3fc;
+$color-accent-end: #a390db;
+$gradient-accent: linear-gradient(90deg, $color-accent-start, $color-accent-end);
+$gradient-glass: linear-gradient(135deg, rgba(10, 61, 98, 0.4), rgba(32, 32, 136, 0.4));
+
+// Fondos de tarjetas
+$card-bg: rgba(31, 17, 17, 0);
+$card-bg-hover: rgba(12, 20, 60, 0.8);
+$border-light: rgba(255, 255, 255, 0.1);
+
+// Fuentes
+$font-main: 'Inter', system-ui, sans-serif;
+
+// Transiciones
+$transition-base: all 0.2s ease-in-out;
+$transition-fade: opacity 0.15s linear;
+$transition-collapse: height 0.35s ease;
+
+// _variables.scss
+$breakpoints: (
+  'small': 576px,
+  'medium': 768px,
+  'large': 992px,
+  'xlarge': 1200px
+);
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "El breakpoint `#{$breakpoint}` no existe en el mapa de breakpoints.";
+  }
+}

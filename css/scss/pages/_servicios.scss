@@ -1,0 +1,131 @@
+// pages/_servicios.scss
+
+.page-servicios {
+  padding: 4rem 0;
+
+  .servicio-tabs {
+    margin: 2rem 0;
+    
+    .nav-tabs {
+      border: none;
+      justify-content: center;
+      margin-bottom: 2rem;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+
+      &::-webkit-scrollbar {
+        height: 5px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: $color-accent-start;
+        border-radius: 5px;
+      }
+
+      .nav-item {
+        margin: 0 0.5rem;
+
+        .nav-link {
+          color: $color-text-muted;
+          border: none;
+          padding: 0.75rem 1.5rem;
+          border-radius: 50px;
+          font-weight: 500;
+          transition: all 0.3s ease;
+          white-space: nowrap;
+
+          &:hover {
+            color: $color-accent-start;
+            background: rgba($color-accent-start, 0.1);
+          }
+
+          &.active {
+            color: white;
+            background: $gradient-accent;
+            box-shadow: 0 4px 15px rgba($color-accent-start, 0.3);
+          }
+        }
+      }
+    }
+
+    .tab-content {
+      background: rgba($color-bg-light, 0.05);
+      border-radius: 1rem;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+  }
+
+  .servicio-detalle {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @include media-breakpoint-up(md) {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .servicio-imagen {
+      flex: 1;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.5s ease;
+
+        &:hover {
+          transform: scale(1.03);
+        }
+      }
+    }
+
+    .servicio-contenido {
+      flex: 1;
+      padding: 0 1rem;
+
+      h3 {
+        color: $color-accent-start;
+        margin-bottom: 1.5rem;
+        font-size: 2rem;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+
+        li {
+          padding: 0.5rem 0;
+          padding-left: 2rem;
+          position: relative;
+          color: $color-text-muted;
+
+          &::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: $color-accent-start;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Animación de aparición
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.tab-pane {
+  animation: fadeIn 0.5s ease-out;
+}

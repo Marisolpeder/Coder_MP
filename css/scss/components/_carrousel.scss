@@ -1,0 +1,523 @@
+// Variables del carrusel
+$carousel-control-color: $color-text !default;
+$carousel-control-width: 15% !default;
+$carousel-control-opacity: 0.8 !default;
+$carousel-control-hover-opacity: 1 !default;
+$carousel-control-transition: opacity 0.15s ease !default;
+$carousel-indicator-width: 30px !default;
+$carousel-indicator-height: 3px !default;
+$carousel-indicator-hit-area-height: 10px !default;
+$carousel-indicator-spacer: 3px !default;
+$carousel-indicator-active-bg: $color-accent-start !default;
+$carousel-caption-width: 70% !default;
+$carousel-caption-padding: 1.25rem !default;
+$carousel-caption-color: $color-text-light !default;
+$carousel-control-icon-width: 2rem !default;
+$carousel-transition-duration: 0.6s !default;
+$carousel-transition: transform $carousel-transition-duration ease-in-out !default;
+
+// Contenedor principal del carrusel
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  
+  // Efecto hover
+  &:hover {
+    .carousel-control-prev,
+    .carousel-control-next {
+      opacity: 1;
+    }
+  }
+}
+
+// Contenedor de diapositivas
+.carousel-inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  
+  // Transición suave
+  transition: transform $carousel-transition-duration ease-in-out;
+}
+
+// Elemento interno del carrusel
+.carousel-item {
+  position: relative;
+  display: none;
+  float: left;
+  width: 100%;
+  margin-right: -100%;
+  backface-visibility: hidden;
+  transition: transform $carousel-transition-duration ease-in-out;
+  
+  // Imagen dentro del ítem
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  // Clase activa
+  &.active {
+    display: block;
+  }
+  
+  // Efecto de desvanecimiento
+  .carousel-fade & {
+    opacity: 0;
+    transition-property: opacity;
+    transform: none;
+    
+    &.active {
+      opacity: 1;
+    }
+  }
+}
+
+// Controles de navegación
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $carousel-control-width;
+  padding: 0;
+  color: $carousel-control-color;
+  text-align: center;
+  background: none;
+  border: 0;
+  opacity: $carousel-control-opacity;
+  transition: $carousel-control-transition;
+  cursor: pointer;
+  
+  // Efecto hover
+  &:hover,
+  &:focus {
+    color: $carousel-control-color;
+    text-decoration: none;
+    outline: 0;
+    opacity: $carousel-control-hover-opacity;
+  }
+  
+  // Iconos
+  &-icon {
+    display: inline-block;
+    width: $carousel-control-icon-width;
+    height: $carousel-control-icon-width;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 100% 100%;
+  }
+}
+
+// Control anterior
+.carousel-control-prev {
+  left: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.25), transparent);
+  
+  &-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 16 16'%3E%3Cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E");
+  }
+}
+
+// Control siguiente
+.carousel-control-next {
+  right: 0;
+  background: linear-gradient(270deg, rgba(0, 0, 0, 0.25), transparent);
+  
+  &-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 16 16'%3E%3Cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+  }
+}
+
+// Indicadores
+.carousel-indicators {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin-right: 15%;
+  margin-bottom: 1rem;
+  margin-left: 15%;
+  list-style: none;
+  
+  // Indicador individual
+  [data-bs-target] {
+    box-sizing: content-box;
+    flex: 0 1 auto;
+    width: $carousel-indicator-width;
+    height: $carousel-indicator-height;
+    padding: 0;
+    margin-right: $carousel-indicator-spacer;
+    margin-left: $carousel-indicator-spacer;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.5);
+    background-clip: padding-box;
+    border: 0;
+    border-top: $carousel-indicator-hit-area-height solid transparent;
+    border-bottom: $carousel-indicator-hit-area-height solid transparent;
+    opacity: 0.5;
+    transition: opacity 0.6s ease;
+    
+    // Efecto hover
+    &:hover {
+      opacity: 0.8;
+    }
+    
+    // Estado activo
+    &.active {
+      opacity: 1;
+      background-color: $carousel-indicator-active-bg;
+    }
+  }
+}
+
+// Pie de foto
+.carousel-caption {
+  position: absolute;
+  right: (100% - $carousel-caption-width) / 2;
+  bottom: 1.25rem;
+  left: (100% - $carousel-caption-width) / 2;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  color: $carousel-caption-color;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 0.5rem;
+  
+  // Título
+  h5 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  // Texto
+  p {
+    margin-bottom: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
+// Efecto de desvanecimiento
+.carousel-fade {
+  .carousel-item {
+    opacity: 0;
+    transition-property: opacity;
+    transform: none;
+    
+    &.active {
+      opacity: 1;
+    }
+  }
+  
+  .carousel-item-next.carousel-item-start,
+  .carousel-item-prev.carousel-item-end {
+    opacity: 1;
+  }
+  
+  .carousel-item-next,
+  .active.carousel-item-end {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  
+  .carousel-item-prev,
+  .active.carousel-item-start {
+    opacity: 0;
+    transform: translateX(0);
+  }
+}
+
+// Efecto de slide
+.carousel-slide {
+  .carousel-inner {
+    overflow: visible;
+  }
+  
+  .carousel-item {
+    transform: translateX(100%);
+    
+    &.active,
+    &.carousel-item-next.carousel-item-start,
+    &.carousel-item-prev.carousel-item-end {
+      transform: translateX(0);
+    }
+    
+    &.carousel-item-next,
+    &.active.carousel-item-end {
+      transform: translateX(100%);
+    }
+    
+    &.carousel-item-prev,
+    &.active.carousel-item-start {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+// Estilos para el carrusel con miniaturas
+.carousel-thumbnails {
+  display: flex;
+  margin-top: 1rem;
+  overflow-x: auto;
+  scrollbar-width: none; // Para Firefox
+  -ms-overflow-style: none; // Para IE y Edge
+  
+  &::-webkit-scrollbar {
+    display: none; // Para Chrome, Safari y Opera
+  }
+  
+  .thumbnail {
+    flex: 0 0 auto;
+    width: 80px;
+    height: 60px;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+    border: 2px solid transparent;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    
+    &:last-child {
+      margin-right: 0;
+    }
+    
+    &:hover {
+      opacity: 0.8;
+    }
+    
+    &.active {
+      opacity: 1;
+      border-color: $carousel-indicator-active-bg;
+    }
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+// Estilos para el carrusel con tarjetas
+.carousel-cards {
+  .carousel-inner {
+    padding: 1rem 0;
+  }
+  
+  .carousel-item {
+    padding: 0 0.5rem;
+    transition: transform 0.3s ease;
+    
+    .card {
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+}
+
+// Estilos para el carrusel con efecto de portada
+.carousel-coverflow {
+  perspective: 1000px;
+  
+  .carousel-inner {
+    transform-style: preserve-3d;
+  }
+  
+  .carousel-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transform: rotateY(0) scale(0.8);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    backface-visibility: hidden;
+    
+    &.active,
+    &.carousel-item-next,
+    &.carousel-item-prev,
+    &.carousel-item-next.carousel-item-start,
+    &.carousel-item-prev.carousel-item-end {
+      position: relative;
+      opacity: 1;
+      transform: rotateY(0) scale(1);
+    }
+    
+    &.carousel-item-next:not(.carousel-item-start),
+    &.active.carousel-item-end {
+      transform: translateX(50%) scale(0.8) rotateY(-30deg);
+      opacity: 0.7;
+      z-index: -1;
+    }
+    
+    &.carousel-item-prev:not(.carousel-item-end),
+    &.active.carousel-item-start {
+      transform: translateX(-50%) scale(0.8) rotateY(30deg);
+      opacity: 0.7;
+      z-index: -1;
+    }
+  }
+}
+
+// Estilos para el carrusel con efecto de zoom
+.carousel-zoom {
+  .carousel-item {
+    transform: scale(0.9);
+    opacity: 0.7;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    
+    &.active {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}
+
+// Estilos para el carrusel con efecto de cubo 3D
+.carousel-3d {
+  perspective: 2000px;
+  
+  .carousel-inner {
+    transform-style: preserve-3d;
+  }
+  
+  .carousel-item {
+    display: none;
+    position: relative;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transition: transform 1s;
+    
+    &.active {
+      display: block;
+    }
+  }
+}
+
+// Media queries para responsividad
+@include media-breakpoint-down(md) {
+  .carousel-caption {
+    position: static;
+    width: 100%;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 10%;
+  }
+  
+  .carousel-indicators {
+    margin-bottom: 0.5rem;
+    
+    [data-bs-target] {
+      width: 20px;
+      height: 2px;
+    }
+  }
+}
+
+// Clases de utilidad para el carrusel
+.carousel {
+  // Sin bordes redondeados
+  &-rounded-0 {
+    border-radius: 0 !important;
+  }
+  
+  // Con sombra
+  &-shadow {
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+  }
+  
+  // Con borde
+  &-bordered {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  // Con fondo oscuro
+  &-dark {
+    .carousel-control-prev,
+    .carousel-control-next {
+      color: $color-text-light;
+    }
+    
+    .carousel-indicators [data-bs-target] {
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+  }
+  
+  // Con fondo claro
+  &-light {
+    .carousel-control-prev,
+    .carousel-control-next {
+      color: $color-text;
+    }
+    
+    .carousel-indicators [data-bs-target] {
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+  }
+  
+  // Con altura fija
+  &-fixed-height {
+    height: 400px;
+    
+    .carousel-inner,
+    .carousel-item,
+    .carousel-item img {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  // Con ancho completo
+  &-full-width {
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    border-radius: 0;
+    
+    .carousel-inner {
+      border-radius: 0;
+    }
+  }
+}
+
+// Animación para el carrusel
+@keyframes carouselFade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// Clase para animación de desvanecimiento
+.carousel-fade-animation {
+  .carousel-item {
+    animation: carouselFade 1s ease;
+  }
+}

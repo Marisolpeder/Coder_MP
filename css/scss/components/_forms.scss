@@ -1,0 +1,1246 @@
+// Import variables
+@use '../abstracts/variables' as *;
+
+// Estilos base para formularios
+.form-control,
+.form-select,
+.form-check-input,
+.form-range {
+  &:focus {
+    border-color: $color-accent-start;
+    box-shadow: 0 0 0 0.25rem rgba($color-accent-start, 0.25);
+  }
+}
+
+// Grupo de formulario
+.form-group {
+  margin-bottom: 1.5rem;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  // Etiquetas
+  label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: $color-text;
+    
+    &.required::after {
+      content: '*';
+      margin-left: 0.25rem;
+      color: $color-danger;
+    }
+  }
+  
+  // Texto de ayuda
+  .form-text {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.8125rem;
+    color: $color-text-muted;
+  }
+  
+  // Validación
+  .is-valid {
+    border-color: $color-success;
+    
+    &:focus {
+      box-shadow: 0 0 0 0.25rem rgba($color-success, 0.25);
+    }
+    
+    & ~ .valid-feedback {
+      display: block;
+    }
+  }
+  
+  .is-invalid {
+    border-color: $color-danger;
+    
+    &:focus {
+      box-shadow: 0 0 0 0.25rem rgba($color-danger, 0.25);
+    }
+    
+    & ~ .invalid-feedback {
+      display: block;
+    }
+  }
+  
+  .valid-feedback,
+  .invalid-feedback {
+    display: none;
+    margin-top: 0.5rem;
+    font-size: 0.8125rem;
+  }
+  
+  .valid-feedback {
+    color: $color-success;
+  }
+  
+  .invalid-feedback {
+    color: $color-danger;
+  }
+}
+
+// Campos de formulario
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: $color-text;
+  background-color: $color-bg-light;
+  background-clip: padding-box;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  
+  &::placeholder {
+    color: $color-text-muted;
+    opacity: 0.7;
+  }
+  
+  &:disabled,
+  &[readonly] {
+    background-color: rgba(255, 255, 255, 0.05);
+    opacity: 0.7;
+  }
+  
+  // Tamaños
+  &-sm {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    border-radius: 0.375rem;
+  }
+  
+  &-lg {
+    padding: 1rem 1.25rem;
+    font-size: 1.125rem;
+    border-radius: 0.625rem;
+  }
+  
+  // Campos de búsqueda
+  &-search {
+    padding-left: 3rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23929aaf' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 1.25rem center;
+    background-size: 1.25rem;
+  }
+}
+
+// Área de texto
+textarea.form-control {
+  min-height: 120px;
+  resize: vertical;
+}
+
+// Selectores
+.form-select {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 3rem 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: $color-text;
+  background-color: $color-bg-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23929aaf' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 16px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  appearance: none;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  
+  &:focus {
+    border-color: $color-accent-start;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba($color-accent-start, 0.25);
+  }
+  
+  &:disabled {
+    background-color: rgba(255, 255, 255, 0.05);
+    opacity: 0.7;
+  }
+  
+  // Tamaños
+  &-sm {
+    padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    border-radius: 0.375rem;
+  }
+  
+  &-lg {
+    padding: 1rem 3.5rem 1rem 1.25rem;
+    font-size: 1.125rem;
+    border-radius: 0.625rem;
+  }
+}
+
+// Checkboxes y radios
+.form-check {
+  display: block;
+  min-height: 1.5rem;
+  padding-left: 1.75em;
+  margin-bottom: 0.5rem;
+}
+
+.form-check {
+  input[type="checkbox"],
+  input[type="radio"] {
+    background-color: $color-accent-start;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 0.75em 0.75em;
+    -webkit-print-color-adjust:#6161dd; 
+    print-color-adjust: #3838da; 
+    border-color: $color-accent-start;
+    border-radius: 0.25em;
+}
+}
+ 
+  input[type="radio"] {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
+}
+  
+  input[type="checkbox"] {
+    border-radius: 0.25em;
+}
+  
+  input[type="radio"] {
+    border-radius: 50%;
+}
+  
+  input[type="checkbox"]:active,
+  input[type="radio"]:active {
+    filter: brightness(90%);
+}
+  
+  input[type="checkbox"]:focus,
+  input[type="radio"]:focus {
+    border-color: $color-accent-start;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba($color-accent-start, 0.25);
+}
+  
+  input[type="checkbox"]:checked,
+  input[type="radio"]:checked {
+    background-color: $color-accent-start;
+    border-color: $color-accent-start;
+}    
+    &[type="checkbox"] {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022z'/%3E%3C/svg%3E");
+    }
+    
+    &[type="radio"] {
+    
+    &:active {
+      filter: brightness(90%);
+    }
+    
+    &:focus {
+      border-color: $color-accent-start;
+      outline: 0;
+      box-shadow: 0 0 0 0.25rem rgba($color-accent-start, 0.25);
+    }
+    
+    &:checked {
+      background-color: $color-accent-start;
+      border-color: $color-accent-start;
+      
+      &[type="checkbox"] {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022z'/%3E%3C/svg%3E");
+      }
+      
+      &[type="radio"] {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6'/%3E%3C/svg%3E");
+      }
+    }
+    
+    &[type="checkbox"]:indeterminate {
+      background-color: $color-accent-start;
+      border-color: $color-accent-start;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z'/%3E%3C/svg%3E");
+    }
+    
+    &:disabled {
+      pointer-events: none;
+      filter: none;
+      opacity: 0.5;
+    }
+    
+    &[disabled] ~ .form-check-label,
+    &:disabled ~ .form-check-label {
+      opacity: 0.5;
+    }
+  }
+  
+  &-label {
+    color: $color-text;
+    cursor: pointer;
+    
+    // Deshabilitado
+    .form-check-input:disabled ~ & {
+      cursor: default;
+    }
+  }
+  
+  // Inline
+  &-inline {
+    display: inline-block;
+    margin-right: 1.5rem;
+  } 
+    
+// Switch
+.form-switch {
+  padding-left: 2.75em;
+  
+  .form-check-input {
+    width: 2.25em;
+    margin-left: -2.75em;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23929aaf' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6'/%3E%3C/svg%3E");
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 2em;
+    transition: background-position 0.15s ease-in-out, 
+                background-color 0.15s ease-in-out, 
+                border-color 0.15s ease-in-out, 
+                box-shadow 0.15s ease-in-out;
+    
+    &:focus {
+      $color: str-slice("#{$color-accent-start}", 2); // Remove the # from the color
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23#{$color}' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6'/%3E%3C/svg%3E");
+    }
+    
+    &:checked {
+      background-position: right center;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6'/%3E%3C/svg%3E");
+    }
+  }
+}
+
+// Rango
+.form-range {
+  width: 100%;
+  height: 1.5rem;
+  padding: 0;
+  background-color: transparent;
+  appearance: none;
+  
+  &:focus {
+    outline: 0;
+    
+    &::-webkit-slider-thumb {
+      box-shadow: 0 0 0 1px $color-bg, 0 0 0 0.25rem rgba($color-accent-start, 0.25);
+    }
+    
+    &::-moz-range-thumb {
+      box-shadow: 0 0 0 1px $color-bg, 0 0 0 0.25rem rgba($color-accent-start, 0.25);
+    }
+  }
+  
+  &::-moz-focus-outer {
+    border: 0;
+  }
+  
+  &::-webkit-slider-thumb {
+    width: 1rem;
+    height: 1rem;
+    margin-top: -0.25rem;
+    background-color: $color-accent-start;
+    border: 0;
+    border-radius: 1rem;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    appearance: none;
+    
+    &:active {
+      background-color: lighten($color-accent-start, 15%);
+    }
+  }
+  
+  &::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 0.5rem;
+    color: transparent;
+    cursor: pointer;
+    background-color: $color-bg-light;
+    border-color: transparent;
+    border-radius: 1rem;
+  }
+  
+  &::-moz-range-thumb {
+    width: 1rem;
+    height: 1rem;
+    background-color: $color-accent-start;
+    border: 0;
+    border-radius: 1rem;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    appearance: none;
+    
+    &:active {
+      background-color: lighten($color-accent-start, 15%);
+    }
+  }
+  
+  &::-moz-range-track {
+    width: 100%;
+    height: 0.5rem;
+    color: transparent;
+    cursor: pointer;
+    background-color: $color-bg-light;
+    border-color: transparent;
+    border-radius: 1rem;
+  }
+  
+    &:disabled {
+    pointer-events: none;
+    
+    &::-webkit-slider-thumb {
+      background-color: $color-text-muted;
+    }
+    
+    &::-moz-range-thumb {
+      background-color: $color-text-muted;
+    }
+  }
+}
+
+// Grupo de entrada
+.input-group {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
+  
+  > .form-control,
+  > .form-select,
+  > .form-floating {
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+    
+    &:not(:first-child) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    
+    &:not(:last-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+  
+  // Texto de ayuda
+  &-text {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: $color-text;
+    text-align: center;
+    white-space: nowrap;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    
+    &:first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right: 0;
+    }
+    
+    &:last-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-left: 0;
+    }
+  }
+  
+  // Botones en grupos de entrada
+  .btn {
+    position: relative;
+    z-index: 2;
+    
+    &:focus {
+      z-index: 3;
+    }
+  }
+  
+  // Tamaños
+  &-sm > .form-control,
+  &-sm > .form-select,
+  &-sm > .input-group-text {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    border-radius: 0.375rem;
+  }
+  
+  &-lg > .form-control,
+  &-lg > .form-select,
+  &-lg > .input-group-text {
+    padding: 1rem 1.25rem;
+    font-size: 1.125rem;
+    border-radius: 0.625rem;
+  }
+  
+  // Agregados y botones
+  &-append,
+  &-prepend {
+    display: flex;
+  }
+  
+  &-append {
+    margin-left: -1px;
+  }
+  
+  &-prepend {
+    margin-right: -1px;
+  }
+}
+
+// Formulario flotante
+.form-floating {
+  position: relative;
+  
+  > .form-control,
+  > .form-select {
+    height: calc(3.5rem + 2px);
+    padding: 1rem 1rem;
+    line-height: 1.25;
+  }
+  
+  > label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding: 1rem 1rem;
+    pointer-events: none;
+    border: 1px solid transparent;
+    transform-origin: 0 0;
+    transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
+    color: $color-text-muted;
+  }
+  
+  > .form-control {
+    &::placeholder {
+      color: transparent;
+    }
+    
+    &:focus,
+    &:not(:placeholder-shown) {
+      padding-top: 1.625rem;
+      padding-bottom: 0.625rem;
+    }
+    
+    &:focus ~ label,
+    &:not(:placeholder-shown) ~ label,
+    .form-select ~ label {
+      opacity: 0.65;
+      transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+    }
+    
+    // Estilo para cuando está deshabilitado
+    &:disabled ~ label {
+      opacity: 0.5;
+    }
+  }
+  
+  > .form-select {
+    padding-top: 1.625rem;
+    padding-bottom: 0.625rem;
+  }
+  
+  // Tamaños
+  &-sm > .form-control,
+  &-sm > .form-select {
+    height: calc(2.5rem + 2px);
+    padding: 0.5rem 0.5rem;
+    font-size: 0.875rem;
+    
+    ~ label {
+      padding: 0.5rem 0.5rem;
+      font-size: 0.875rem;
+    }
+    
+    &:focus ~ label,
+    &:not(:placeholder-shown) ~ label {
+      transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+    }
+  }
+  
+  &-lg > .form-control,
+  &-lg > .form-select {
+    height: calc(4rem + 2px);
+    padding: 1rem 1rem;
+    font-size: 1.25rem;
+    
+    ~ label {
+      padding: 1rem 1rem;
+      font-size: 1.25rem;
+    }
+    
+    &:focus ~ label,
+    &:not(:placeholder-shown) ~ label {
+      transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+    }
+  }
+  
+  // Validación
+  .form-control.is-valid:focus ~ label,
+  .form-control.is-invalid:focus ~ label,
+  .was-validated .form-control:valid:focus ~ label,
+  .was-validated .form-control:invalid:focus ~ label {
+    color: $color-text;
+  }
+}
+
+// Validación de formulario
+.was-validated :valid ~ .valid-feedback,
+.was-validated :valid ~ .valid-tooltip,
+.is-valid ~ .valid-feedback,
+.is-valid ~ .valid-tooltip {
+  display: block;
+}
+
+.was-validated :invalid ~ .invalid-feedback,
+.was-validated :invalid ~ .invalid-tooltip,
+.is-invalid ~ .invalid-feedback,
+.is-invalid ~ .invalid-tooltip {
+  display: block;
+}
+
+// Formulario en línea
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  
+  .form-group {
+    margin-right: 1rem;
+    margin-bottom: 0;
+  }
+  
+  .form-control {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+  }
+  
+  .form-check {
+    width: 100%;
+    
+    @include media-breakpoint-up(sm) {
+      width: auto;
+    }
+  }
+}
+
+// Formulario oscuro
+.form-dark {
+  .form-control,
+  .form-select,
+  .input-group-text {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: $color-text;
+    
+    &:focus {
+      background-color: rgba(0, 0, 0, 0.4);
+      border-color: $color-accent-start;
+      color: $color-text;
+    }
+    
+    &::placeholder {
+      color: rgba($color-text, 0.6);
+    }
+  }
+  
+  .input-group-text {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: $color-text-muted;
+  }
+  
+  .form-check-input {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.1);
+    
+    &:checked {
+      background-color: $color-accent-start;
+      border-color: $color-accent-start;
+    }
+  }
+  
+  .form-range {
+    &::-webkit-slider-runnable-track {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+    
+    &::-moz-range-track {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+    
+    &::-webkit-slider-thumb:active {
+      background-color: lighten($color-accent-start, 10%);
+    }
+    
+    &::-moz-range-thumb:active {
+      background-color: lighten($color-accent-start, 10%);
+    }
+  }
+}
+
+// Formulario con iconos
+.has-icon {
+  position: relative;
+  
+  .form-control {
+    padding-left: 3rem;
+  }
+  
+  .icon {
+    position: absolute;
+    top: 50%;
+    left: 1.25rem;
+    transform: translateY(-50%);
+    color: $color-text-muted;
+    pointer-events: none;
+    z-index: 3;
+  }
+  
+  // Tamaños
+  &.has-icon-sm {
+    .form-control {
+      padding-left: 2.5rem;
+    }
+    
+    .icon {
+      left: 0.75rem;
+      font-size: 1rem;
+    }
+  }
+  
+  &.has-icon-lg {
+    .form-control {
+      padding-left: 3.5rem;
+    }
+    
+    .icon {
+      left: 1.5rem;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+// Formulario con botón de acción
+.has-action {
+  position: relative;
+  
+  .form-control {
+    padding-right: 4.5rem;
+  }
+  
+  .btn-action {
+    position: absolute;
+    top: 50%;
+    right: 0.5rem;
+    transform: translateY(-50%);
+    z-index: 3;
+    
+    // Tamaños
+    &.btn-sm {
+      right: 0.25rem;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.75rem;
+    }
+    
+    &.btn-lg {
+      right: 0.75rem;
+      padding: 0.5rem 1.25rem;
+      font-size: 1.125rem;
+    }
+  }
+  
+  // Con icono
+  &.has-icon {
+    .form-control {
+      padding-left: 3rem;
+      padding-right: 5.5rem;
+    }
+    
+    &.has-icon-sm .form-control {
+      padding-left: 2.5rem;
+      padding-right: 5rem;
+    }
+    
+    &.has-icon-lg .form-control {
+      padding-left: 3.5rem;
+      padding-right: 6rem;
+    }
+  }
+}
+
+// Formulario con contador de caracteres
+.char-counter {
+  font-size: 0.75rem;
+  color: $color-text-muted;
+  margin-top: 0.25rem;
+  text-align: right;
+  
+  &.text-danger {
+    color: $color-danger;
+  }
+}
+
+// Formulario con pestañas
+.form-tabs {
+  .nav-tabs {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    
+    .nav-link {
+      padding: 0.75rem 1.25rem;
+      color: $color-text-muted;
+      border: none;
+      border-bottom: 2px solid transparent;
+      border-radius: 0;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      
+      &:hover {
+        color: $color-accent-start;
+        border-color: transparent;
+      }
+      
+      &.active {
+        color: $color-accent-start;
+        background: transparent;
+        border-color: $color-accent-start;
+      }
+    }
+  }
+  
+  .tab-content {
+    padding: 0 0.5rem;
+  }
+}
+
+// Formulario con pasos
+.form-steps {
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 0;
+  }
+  
+  .step {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    
+    .step-number {
+      width: 3rem;
+      height: 3rem;
+      margin: 0 auto 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: $color-bg-light;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      font-weight: 600;
+      color: $color-text-muted;
+      transition: all 0.3s ease;
+    }
+    
+    .step-title {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: $color-text-muted;
+      margin-bottom: 0;
+      transition: all 0.3s ease;
+    }
+    
+    &.active {
+      .step-number {
+        background: $gradient-accent;
+        border-color: $color-accent-start;
+        color: white;
+      }
+      
+      .step-title {
+        color: $color-accent-start;
+      }
+    }
+    
+    &.completed {
+      .step-number {
+        background: rgba($color-success, 0.1);
+        border-color: $color-success;
+        color: $color-success;
+      }
+      
+      .step-title {
+        color: $color-text;
+      }
+    }
+  }
+  
+  .step-content {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .step-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    
+    .btn {
+      min-width: 120px;
+    }
+  }
+}
+
+// Formulario con vista previa
+.form-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  
+  .form-preview-content {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .form-preview-sidebar {
+    width: 300px;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    
+    .preview-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .preview-item {
+      margin-bottom: 1.25rem;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+      
+      .preview-label {
+        font-size: 0.8125rem;
+        color: $color-text-muted;
+        margin-bottom: 0.25rem;
+      }
+      
+      .preview-value {
+        font-weight: 500;
+        word-break: break-word;
+      }
+    }
+  }
+}
+
+// Formulario con tarjetas
+.form-cards {
+  .form-check {
+    margin-bottom: 1rem;
+    
+    .form-check-input {
+      position: absolute;
+      opacity: 0;
+      
+      &:checked + .card {
+        border-color: $color-accent-start;
+        background: rgba($color-accent-start, 0.05);
+        
+        .card-title {
+          color: $color-accent-start;
+        }
+        
+        .card-icon {
+          color: $color-accent-start;
+          background: rgba($color-accent-start, 0.1);
+        }
+      }
+    }
+    
+    .card {
+      cursor: pointer;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        border-color: $color-accent-start;
+      }
+      
+      .card-icon {
+        width: 3rem;
+        height: 3rem;
+        margin: 0 auto 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: $color-text-muted;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 50%;
+        transition: all 0.3s ease;
+      }
+      
+      .card-body {
+        text-align: center;
+      }
+      
+      .card-title {
+        margin-bottom: 0.5rem;
+        transition: color 0.3s ease;
+      }
+      
+      .card-text {
+        font-size: 0.875rem;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+// Formulario con pestañas verticales
+.form-tabs-vertical {
+  display: flex;
+  flex-wrap: wrap;
+  
+  .nav-tabs {
+    flex: 0 0 200px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: none;
+    flex-direction: column;
+    padding-right: 1.5rem;
+    
+    .nav-link {
+      padding: 0.75rem 1rem;
+      margin-bottom: 0.5rem;
+      border: none;
+      border-radius: 0.375rem;
+      color: $color-text-muted;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.05);
+        color: $color-accent-start;
+      }
+      
+      &.active {
+        background: rgba($color-accent-start, 0.1);
+        color: $color-accent-start;
+      }
+    }
+  }
+  
+  .tab-content {
+    flex: 1;
+    padding: 0 1.5rem;
+  }
+  
+  @include media-breakpoint-down(md) {
+    flex-direction: column;
+    
+    .nav-tabs {
+      flex: 0 0 auto;
+      border-right: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-right: 0;
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      flex-direction: row;
+      overflow-x: auto;
+      
+      .nav-link {
+        white-space: nowrap;
+      }
+    }
+    
+    .tab-content {
+      padding: 0;
+    }
+  }
+}
+
+// Formulario con pasos verticales
+.form-steps-vertical {
+  display: flex;
+  flex-wrap: wrap;
+  
+  .steps {
+    flex: 0 0 250px;
+    padding-right: 2rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    
+    .step {
+      position: relative;
+      padding: 0.75rem 1rem 0.75rem 2.5rem;
+      margin-bottom: 0.5rem;
+      border-radius: 0.375rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 1rem;
+        transform: translateY(-50%);
+        width: 1.5rem;
+        height: 1.5rem;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: $color-text-muted;
+        transition: all 0.3s ease;
+      }
+      
+      .step-title {
+        font-weight: 500;
+        margin-bottom: 0.25rem;
+        color: $color-text;
+        transition: color 0.2s ease;
+      }
+      
+      .step-desc {
+        font-size: 0.8125rem;
+        color: $color-text-muted;
+        margin: 0;
+      }
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.03);
+        
+        .step-title {
+          color: $color-accent-start;
+        }
+      }
+      
+      &.active {
+        background: rgba($color-accent-start, 0.1);
+        
+        &::before {
+          background: $gradient-accent;
+          border-color: $color-accent-start;
+          color: white;
+          content: counter(step);
+          counter-increment: step;
+        }
+        
+        .step-title {
+          color: $color-accent-start;
+        }
+      }
+      
+      &.completed {
+        &::before {
+          content: '✓';
+          background: rgba($color-success, 0.1);
+          border-color: $color-success;
+          color: $color-success;
+        }
+      }
+    }
+  }
+  
+  .step-content {
+    flex: 1;
+    padding-left: 2rem;
+    
+    .step-pane {
+      display: none;
+      
+      &.active {
+        display: block;
+        animation: fadeIn 0.3s ease;
+      }
+    }
+  }
+  
+  .step-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    
+    .btn {
+      min-width: 120px;
+    }
+  }
+  
+  @include media-breakpoint-down(md) {
+    flex-direction: column;
+    
+    .steps {
+      flex: 0 0 auto;
+      padding-right: 0;
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-right: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      overflow-x: auto;
+      white-space: nowrap;
+      display: flex;
+      gap: 1rem;
+      
+      .step {
+        min-width: 200px;
+        margin-bottom: 0;
+      }
+    }
+    
+    .step-content {
+      padding-left: 0;
+    }
+  }
+}
+
+// Animación para el contenido de los pasos
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

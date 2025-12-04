@@ -1,0 +1,417 @@
+// Estilos para el encabezado
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  padding: 1.5rem 0;
+  
+  &.scrolled {
+    padding: 0.75rem 0;
+    background-color: rgba($color-bg, 0.95);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: $color-text;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    
+    span {
+      color: $color-accent-start;
+    }
+    
+    img {
+      height: 40px;
+      margin-right: 0.75rem;
+    }
+  }
+  
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: $color-text;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    
+    @include media-breakpoint-down(md) {
+      display: block;
+    }
+  }
+}
+
+// Estilos para la navegación principal
+.navbar {
+  display: flex;
+  align-items: center;
+  
+  @include media-breakpoint-down(md) {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 400px;
+    height: 100vh;
+    background: $color-bg;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    transition: right 0.3s ease-in-out;
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    
+    &.active {
+      right: 0;
+    }
+  }
+  
+  .nav-close {
+    display: none;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 1.75rem;
+    color: $color-text;
+    background: none;
+    border: none;
+    cursor: pointer;
+    
+    @include media-breakpoint-down(md) {
+      display: block;
+    }
+  }
+  
+  .nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+    @include media-breakpoint-down(md) {
+      flex-direction: column;
+      width: 100%;
+      text-align: center;
+    }
+    
+    .nav-item {
+      margin: 0 0.5rem;
+      position: relative;
+      
+      @include media-breakpoint-down(md) {
+        margin: 0.5rem 0;
+        width: 100%;
+      }
+      
+      .nav-link {
+        display: block;
+        padding: 0.5rem 1rem;
+        color: $color-text-muted;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        position: relative;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          width: 0;
+          height: 2px;
+          background: $gradient-accent;
+          transition: all 0.3s ease;
+          transform: translateX(-50%);
+        }
+        
+        &:hover, &.active {
+          color: $color-text;
+          
+          &::after {
+            width: 60%;
+          }
+        }
+        
+        @include media-breakpoint-down(md) {
+          padding: 0.75rem 0;
+          font-size: 1.1rem;
+          
+          &::after {
+            display: none;
+          }
+          
+          &:hover, &.active {
+            color: $color-accent-start;
+          }
+        }
+      }
+      
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 220px;
+        background: $card-bg;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 0.5rem;
+        padding: 0.5rem 0;
+        margin-top: 0.5rem;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        z-index: 100;
+        
+        @include media-breakpoint-down(md) {
+          position: static;
+          display: none;
+          opacity: 1;
+          visibility: visible;
+          transform: none;
+          box-shadow: none;
+          background: rgba(255, 255, 255, 0.03);
+          border: none;
+          padding: 0;
+          margin: 0.5rem 0 0 1rem;
+        }
+        
+        .dropdown-item {
+          display: block;
+          padding: 0.5rem 1.5rem;
+          color: $color-text-muted;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          
+          &:hover {
+            color: $color-accent-start;
+            background: rgba(255, 255, 255, 0.05);
+          }
+          
+          @include media-breakpoint-down(md) {
+            padding: 0.5rem 1rem;
+          }
+        }
+      }
+      
+      &:hover > .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        
+        @include media-breakpoint-down(md) {
+          display: block;
+          transform: none;
+        }
+      }
+      
+      .dropdown-toggle {
+        &::after {
+          content: '\f107';
+          font-family: 'Font Awesome 5 Free';
+          font-weight: 900;
+          display: inline-block;
+          margin-left: 0.5rem;
+          transition: transform 0.3s ease;
+          border: none;
+          vertical-align: middle;
+        }
+        
+        @include media-breakpoint-down(md) {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          
+          &::after {
+            transform: rotate(-90deg);
+          }
+          
+          &[aria-expanded="true"]::after {
+            transform: rotate(0);
+          }
+        }
+      }
+    }
+  }
+  
+  .nav-buttons {
+    display: flex;
+    align-items: center;
+    margin-left: 1.5rem;
+    
+    @include media-breakpoint-down(md) {
+      margin: 1.5rem 0 0;
+      width: 100%;
+      flex-direction: column;
+    }
+    
+    .btn {
+      margin-left: 1rem;
+      
+      @include media-breakpoint-down(md) {
+        margin: 0.5rem 0;
+        width: 100%;
+        text-align: center;
+      }
+      
+      &:first-child {
+        margin-left: 0;
+        
+        @include media-breakpoint-down(md) {
+          margin: 0.5rem 0;
+        }
+      }
+    }
+  }
+}
+
+// Overlay para el menú móvil
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// Estilos para el encabezado en modo claro (si se implementa)
+.header-light {
+  .logo {
+    color: $color-bg;
+    
+    span {
+      color: $color-accent-start;
+    }
+  }
+  
+  .nav-toggle, .nav-close {
+    color: $color-bg;
+  }
+  
+  .nav-link {
+    color: rgba($color-bg, 0.8) !important;
+    
+    &:hover, &.active {
+      color: $color-bg !important;
+    }
+  }
+  
+  &.scrolled {
+    .nav-link {
+      color: $color-text !important;
+      
+      &:hover, &.active {
+        color: $color-accent-start !important;
+      }
+    }
+  }
+}
+
+// Estilos para el encabezado transparente
+.header-transparent {
+  position: absolute;
+  background: transparent;
+  
+  .logo, .nav-link, .nav-toggle, .nav-close {
+    color: $color-text;
+  }
+  
+  .nav-link {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    
+    &:hover, &.active {
+      color: $color-accent-start !important;
+    }
+  }
+  
+  .btn-outline-light {
+    border-color: $color-text;
+    color: $color-text;
+    
+    &:hover {
+      background: $color-text;
+      color: $color-bg;
+    }
+  }
+  
+  &.scrolled {
+    background: rgba($color-bg, 0.95);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    
+    .logo, .nav-link, .nav-toggle, .nav-close {
+      color: $color-text;
+    }
+    
+    .nav-link {
+      text-shadow: none;
+    }
+  }
+}
+
+// Estilos para el encabezado con borde inferior
+.header-bordered {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  
+  &.scrolled {
+    border-bottom-color: transparent;
+  }
+}
+
+// Estilos para el encabezado centrado
+.header-centered {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .logo {
+    margin-bottom: 1rem;
+  }
+  
+  .navbar {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .nav-buttons {
+    margin-left: 0;
+    margin-top: 1.5rem;
+    justify-content: center;
+  }
+  
+  @include media-breakpoint-down(md) {
+    .logo {
+      margin-bottom: 0;
+    }
+    
+    .navbar {
+      align-items: flex-start;
+      text-align: left;
+    }
+  }
+}

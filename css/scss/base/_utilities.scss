@@ -1,0 +1,76 @@
+// Clases de utilidad para espaciado
+@for $i from 0 through 5 {
+  .m-#{$i} { margin: #{$i}rem !important; }
+  .mt-#{$i}, .my-#{$i} { margin-top: #{$i}rem !important; }
+  .mr-#{$i}, .mx-#{$i} { margin-right: #{$i}rem !important; }
+  .mb-#{$i}, .my-#{$i} { margin-bottom: #{$i}rem !important; }
+  .ml-#{$i}, .mx-#{$i} { margin-left: #{$i}rem !important; }
+  
+  .p-#{$i} { padding: #{$i}rem !important; }
+  .pt-#{$i}, .py-#{$i} { padding-top: #{$i}rem !important; }
+  .pr-#{$i}, .px-#{$i} { padding-right: #{$i}rem !important; }
+  .pb-#{$i}, .py-#{$i} { padding-bottom: #{$i}rem !important; }
+  .pl-#{$i}, .px-#{$i} { padding-left: #{$i}rem !important; }
+}
+
+// Utilidades de texto
+.text-center { text-align: center !important; }
+.text-right { text-align: right !important; }
+.text-left { text-align: left !important; }
+.text-justify { text-align: justify !important; }
+.text-uppercase { text-transform: uppercase !important; }
+.text-lowercase { text-transform: lowercase !important; }
+.text-capitalize { text-transform: capitalize !important; }
+.font-weight-light { font-weight: 300 !important; }
+.font-weight-normal { font-weight: 400 !important; }
+.font-weight-medium { font-weight: 500 !important; }
+.font-weight-bold { font-weight: 700 !important; }
+.font-italic { font-style: italic !important; }
+
+// Utilidades de visualización
+.d-none { display: none !important; }
+.d-inline { display: inline !important; }
+.d-inline-block { display: inline-block !important; }
+.d-block { display: block !important; }
+.d-flex { display: flex !important; }
+.d-inline-flex { display: inline-flex !important; }
+
+// Utilidades de flexbox
+.flex-row { flex-direction: row !important; }
+.flex-column { flex-direction: column !important; }
+.flex-wrap { flex-wrap: wrap !important; }
+.justify-content-start { justify-content: flex-start !important; }
+.justify-content-end { justify-content: flex-end !important; }
+.justify-content-center { justify-content: center !important; }
+.justify-content-between { justify-content: space-between !important; }
+.justify-content-around { justify-content: space-around !important; }
+.align-items-start { align-items: flex-start !important; }
+.align-items-end { align-items: flex-end !important; }
+.align-items-center { align-items: center !important; }
+.align-items-baseline { align-items: baseline !important; }
+.align-items-stretch { align-items: stretch !important; }
+
+// Utilidades de posición
+.position-static { position: static !important; }
+.position-relative { position: relative !important; }
+.position-absolute { position: absolute !important; }
+.position-fixed { position: fixed !important; }
+.position-sticky { position: sticky !important; }
+
+// Utilidades de visibilidad
+.visible { visibility: visible !important; }
+.invisible { visibility: hidden !important; }
+
+// Utilidades responsivas
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    
+    .d#{$infix}-none { display: none !important; }
+    .d#{$infix}-inline { display: inline !important; }
+    .d#{$infix}-inline-block { display: inline-block !important; }
+    .d#{$infix}-block { display: block !important; }
+    .d#{$infix}-flex { display: flex !important; }
+    .d#{$infix}-inline-flex { display: inline-flex !important; }
+  }
+}

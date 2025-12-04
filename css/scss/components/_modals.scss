@@ -1,0 +1,608 @@
+// Variables de modales
+$modal-backdrop-bg: rgba(0, 0, 0, 0.6) !default;
+$modal-content-bg: $color-bg !default;
+$modal-content-border-color: rgba(255, 255, 255, 0.1) !default;
+$modal-content-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !default;
+$modal-header-border-color: rgba(255, 255, 255, 0.1) !default;
+$modal-footer-border-color: $modal-header-border-color !default;
+
+// Fondo del modal
+.modal-backdrop {
+  background-color: $modal-backdrop-bg;
+  
+  &.show {
+    opacity: 1;
+  }
+}
+
+// Contenedor principal del modal
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
+  
+  // Efecto de entrada
+  &.fade .modal-dialog {
+    transition: transform 0.3s ease-out;
+    transform: translate(0, -50px);
+  }
+  
+  &.show .modal-dialog {
+    transform: none;
+  }
+}
+
+// Contenedor del diálogo
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 0.5rem;
+  pointer-events: none;
+  max-width: 100%;
+  
+  // Centrado vertical
+  display: flex;
+  align-items: center;
+  min-height: calc(100% - 1rem);
+  
+  @include media-breakpoint-up(sm) {
+    margin: 1.75rem auto;
+    min-height: calc(100% - 3.5rem);
+  }
+  
+  // Tamaños de modales
+  &-sm {
+    max-width: 400px;
+  }
+  
+  &-lg {
+    max-width: 800px;
+  }
+  
+  &-xl {
+    max-width: 1140px;
+  }
+  
+  // Modal de tamaño completo
+  &-fullscreen {
+    width: 100vw;
+    max-width: none;
+    height: 100%;
+    margin: 0;
+    
+    .modal-content {
+      height: 100%;
+      border: 0;
+      border-radius: 0;
+    }
+    
+    .modal-body {
+      overflow-y: auto;
+    }
+  }
+}
+
+// Contenido del modal
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: $modal-content-bg;
+  background-clip: padding-box;
+  border: 1px solid $modal-content-border-color;
+  border-radius: 0.5rem;
+  outline: 0;
+  box-shadow: $modal-content-box-shadow;
+  
+  // Efecto de vidrio
+  &-glass {
+    background: rgba($color-bg, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+// Encabezado del modal
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border-bottom: 1px solid $modal-header-border-color;
+  border-top-left-radius: calc(0.5rem - 1px);
+  border-top-right-radius: calc(0.5rem - 1px);
+  
+  .modal-title {
+    margin-bottom: 0;
+    line-height: 1.5;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $color-text;
+  }
+  
+  .btn-close {
+    padding: 0.5rem;
+    margin: -0.5rem -0.5rem -0.5rem auto;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0.25rem;
+    opacity: 0.7;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      opacity: 1;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    &:focus {
+      outline: 0;
+      box-shadow: 0 0 0 0.25rem rgba($color-accent-start, 0.25);
+    }
+  }
+}
+
+// Cuerpo del modal
+.modal-body {
+  position: relative;
+  flex: 1 1 auto;
+  padding: 1.5rem;
+  
+  // Desplazamiento con scroll
+  &-scroll {
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+  
+  // Sin padding
+  &-no-padding {
+    padding: 0;
+  }
+  
+  // Con padding horizontal
+  &-px {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  // Con padding vertical
+  &-py {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+// Pie del modal
+.modal-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  border-top: 1px solid $modal-footer-border-color;
+  border-bottom-right-radius: calc(0.5rem - 1px);
+  border-bottom-left-radius: calc(0.5rem - 1px);
+  gap: 0.5rem;
+  
+  // Alineación de botones
+  &-start {
+    justify-content: flex-start;
+  }
+  
+  &-center {
+    justify-content: center;
+  }
+  
+  &-between {
+    justify-content: space-between;
+  }
+  
+  // Sin borde superior
+  &-no-border {
+    border-top: 0;
+  }
+  
+  // Con fondo
+  &-bg {
+    background-color: rgba(255, 255, 255, 0.03);
+  }
+}
+
+// Modal centrado verticalmente
+.modal-dialog-centered {
+  display: flex;
+  align-items: center;
+  min-height: calc(100% - 1rem);
+  
+  &::before {
+    display: block;
+    height: calc(100vh - 1rem);
+    content: "";
+  }
+  
+  @include media-breakpoint-up(sm) {
+    min-height: calc(100% - 3.5rem);
+    
+    &::before {
+      height: calc(100vh - 3.5rem);
+    }
+  }
+}
+
+// Modal con scroll
+.modal-dialog-scrollable {
+  height: calc(100% - 1rem);
+  
+  .modal-content {
+    max-height: 100%;
+    overflow: hidden;
+  }
+  
+  .modal-body {
+    overflow-y: auto;
+  }
+  
+  @include media-breakpoint-up(sm) {
+    height: calc(100% - 3.5rem);
+  }
+}
+
+// Modal de diálogo
+.modal-dialog-dialog {
+  .modal-content {
+    border: 0;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
+  }
+  
+  .modal-header {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  .modal-footer {
+    border-top: 0;
+    padding-top: 0;
+  }
+}
+
+// Modal con imagen
+.modal-image {
+  .modal-dialog {
+    max-width: 90%;
+    margin: 1.75rem auto;
+  }
+  
+  .modal-content {
+    background-color: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+  
+  .modal-body {
+    padding: 0;
+    text-align: center;
+    
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+      box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.3);
+    }
+  }
+  
+  .btn-close {
+    position: absolute;
+    top: -2rem;
+    right: -2rem;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    z-index: 1060;
+    
+    &::after {
+      content: '×';
+      color: white;
+      font-size: 1.75rem;
+      line-height: 1;
+      margin-top: -0.25rem;
+    }
+    
+    svg, img {
+      display: none;
+    }
+    
+    &:hover {
+      background: rgba(0, 0, 0, 0.9);
+    }
+  }
+}
+
+// Modal con efecto de zoom
+.modal-zoom {
+  .modal-dialog {
+    transform: scale(0.7);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0, 1.5);
+  }
+  
+  &.show .modal-dialog {
+    transform: scale(1);
+  }
+}
+
+// Modal con efecto de slide
+.modal-slide {
+  .modal-dialog {
+    transform: translateY(20%);
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+  
+  &.show .modal-dialog {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  // Direcciones de slide
+  &-right {
+    .modal-dialog {
+      transform: translateX(20%);
+    }
+    
+    &.show .modal-dialog {
+      transform: translateX(0);
+    }
+  }
+  
+  &-left {
+    .modal-dialog {
+      transform: translateX(-20%);
+    }
+    
+    &.show .modal-dialog {
+      transform: translateX(0);
+    }
+  }
+  
+  &-top {
+    .modal-dialog {
+      transform: translateY(-20%);
+    }
+    
+    &.show .modal-dialog {
+      transform: translateY(0);
+    }
+  }
+}
+
+// Modal con fondo personalizado
+.modal-bg {
+  &-primary {
+    .modal-content {
+      background: linear-gradient(135deg, rgba($color-primary, 0.9), rgba(darken($color-primary, 15%), 0.95));
+      color: white;
+      
+      .modal-header,
+      .modal-footer {
+        border-color: rgba(255, 255, 255, 0.1);
+      }
+      
+      .modal-title,
+      .btn-close {
+        color: white;
+      }
+      
+      .btn-close {
+        filter: invert(1) grayscale(100%) brightness(200%);
+      }
+    }
+  }
+  
+  &-dark {
+    .modal-content {
+      background: $color-bg-dark;
+      color: $color-text-light;
+      
+      .modal-header,
+      .modal-footer {
+        border-color: rgba(255, 255, 255, 0.05);
+      }
+    }
+  }
+}
+
+// Modal con borde acentuado
+.modal-accent {
+  .modal-content {
+    border-top: 4px solid $color-accent-start;
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
+  
+  .modal-header {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  
+  // Posiciones del borde
+  &-right {
+    .modal-content {
+      border-top: none;
+      border-right: 4px solid $color-accent-start;
+      border-radius: 0.5rem 0 0 0.5rem;
+    }
+  }
+  
+  &-bottom {
+    .modal-content {
+      border-top: none;
+      border-bottom: 4px solid $color-accent-start;
+      border-radius: 0.5rem 0.5rem 0 0;
+    }
+  }
+  
+  &-left {
+    .modal-content {
+      border-top: none;
+      border-left: 4px solid $color-accent-start;
+      border-radius: 0 0.5rem 0.5rem 0;
+    }
+  }
+}
+
+// Modal con sombra
+.modal-shadow {
+  .modal-content {
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
+  }
+  
+  &-lg .modal-content {
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.35);
+  }
+  
+  &-xl .modal-content {
+    box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.4);
+  }
+}
+
+// Modal con animación de entrada
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-animate {
+  .modal-dialog {
+    animation: modalFadeIn 0.3s ease-out;
+  }
+}
+
+// Modal con scroll personalizado
+.modal-scrollbar-measure {
+  position: absolute;
+  top: -9999px;
+  width: 50px;
+  height: 50px;
+  overflow: scroll;
+}
+
+// Media queries para tamaños de pantalla
+@include media-breakpoint-down(sm) {
+  .modal-fullscreen-sm-down {
+    width: 100vw;
+    max-width: none;
+    height: 100%;
+    margin: 0;
+    
+    .modal-content {
+      height: 100%;
+      border: 0;
+      border-radius: 0;
+    }
+    
+    .modal-body {
+      overflow-y: auto;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .modal-fullscreen-md-down {
+    width: 100vw;
+    max-width: none;
+    height: 100%;
+    margin: 0;
+    
+    .modal-content {
+      height: 100%;
+      border: 0;
+      border-radius: 0;
+    }
+    
+    .modal-body {
+      overflow-y: auto;
+    }
+  }
+}
+
+// Clases de utilidad para modales
+.modal {
+  // Centrado
+  &-center {
+    text-align: center;
+    
+    &::before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+      margin-right: -4px;
+    }
+    
+    .modal-dialog {
+      display: inline-block;
+      text-align: left;
+      vertical-align: middle;
+    }
+  }
+  
+  // Sin animación
+  &-no-animation {
+    &.fade .modal-dialog {
+      transition: none;
+      transform: none;
+    }
+  }
+  
+  // Con scroll automático
+  &-auto-height {
+    .modal-body {
+      max-height: none;
+      overflow-y: visible;
+    }
+  }
+  
+  // Con ancho completo
+  &-full {
+    .modal-dialog {
+      max-width: 100%;
+      margin: 0;
+      height: 100%;
+      
+      .modal-content {
+        height: 100%;
+        border: 0;
+        border-radius: 0;
+      }
+    }
+  }
+}
+
+// Clases para el cuerpo cuando el modal está abierto
+body.modal-open {
+  overflow: hidden;
+  padding-right: 0 !important;
+  
+  // Desplazamiento suave
+  .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
