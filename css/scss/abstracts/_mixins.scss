@@ -1,0 +1,33 @@
+// Mixin para efecto cristal (Glassmorphism)
+// Se usa en tarjetas, navbar y formularios
+@mixin glass-effect($blur: 10px, $opacity: 0.6) {
+    background: rgba(12, 20, 60, $opacity);
+    backdrop-filter: blur($blur);
+    border: 1px solid $border-light;
+    box-shadow: 0 6px 20px rgba(43, 77, 228, 0.35);
+}
+
+// Mixin para Flexbox centrado
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// Mixin de Animación de Entrada (Fade In Up)
+@mixin animate-entry($delay: 0s) {
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: $delay;
+    opacity: 0; // Estado inicial invisible
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -8,23 +8,24 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="static-dots-background">
+    <a class="skip-link" href="#main" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Saltar al contenido</a>
 
     <header class="main-header">
-        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom" aria-label="Principal navigation">
             <div class="container-fluid">
                 <a class="navbar-brand fw-bold" href="../index.html">RAIN</a>
                 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Alternar navegación">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="mainNavbar">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="https://img.icons8.com/?size=24&id=44024&format=png&color=E6EEF7" alt="Menú" class="icono-menu">
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-end">
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="../index.html">Inicio</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="objetivos.html">Objetivo</a></li>
@@ -39,9 +40,9 @@
         </nav>
     </header>
 
-   <main>
+    <main id="main">
         <section class="text-center py-4">
-            <h1>Nuestras Aplicaciones</h1>
+            <h1 class="page-title">Nuestras Aplicaciones</h1>
             <p class="hero-subtitle">Herramientas para revolucionar el análisis científico</p>
         </section>
 
@@ -50,27 +51,19 @@
 
                 <article class="fila-app row mb-5">
                     <div class="columna-imagen col-md-6">
-                        <img src="../img/Foto.1.jpg" alt="RAINSTORM" class="imagen-app img-fluid rounded">
+                        <img src="../img/Foto.1.jpg" alt="RAIN" class="imagen-app img-fluid rounded">
                     </div>
                     <div class="columna-info col-md-6">
                         <h3>STORM</h3>
                         <p>Nuestra aplicación principal que utiliza inteligencia artificial para automatizar el análisis conductual en investigación científica.</p>
                         
                         <div class="dropdown">
-                            <button class="btn-descargar btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn-descargar btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="downloadBtn" aria-controls="downloadMenu">
                                 Descargar
                             </button>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item" href="https://github.com/sdhers" target="_blank"></a>
-                                        Descarga (GitHub)
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="https://www.youtube.com/@sdhers" target="_blank">
-                                        Instrucciones (YouTube)
-                                    </a>
-                                </li>
+                            <ul class="dropdown-menu" aria-labelledby="downloadBtn" id="downloadMenu">
+                                <li><a class="dropdown-item" href="https://github.com/sdhers" target="_blank" rel="noopener noreferrer">Descargar (GitHub)</a></li>
+                                <li><a class="dropdown-item" href="https://www.youtube.com/@sdhers" target="_blank" rel="noopener noreferrer">Instrucciones (YouTube)</a></li>
                             </ul>
                         </div>
                         </div>
@@ -85,7 +78,6 @@
                         <p>Herramienta avanzada de análisis de datos que optimiza tus procesos de investigación con visualizaciones interactivas.</p>
                         <div class="proximamente">
                             <button class="btn-descargar btn btn-secondary" disabled>Próximamente</button>
-                            </ul>
                         </div>
                         </div>
                 </article>

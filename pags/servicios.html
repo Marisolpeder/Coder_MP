@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="utf-8" />
@@ -13,22 +12,23 @@
 </head>
 
 <body class="static-dots-background">
+    <a class="skip-link" href="#main" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Saltar al contenido</a>
 
     <header class="main-header">
-        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom" aria-label="Principal navigation">
             <div class="container-fluid">
-                <a class="navbar-brand fw-bold" href="../index.html">RAINSTORM</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                <a class="navbar-brand fw-bold" href="../index.html">RAIN</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Alternar navegación">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 
                 <div class="collapse navbar-collapse" id="mainNavbar">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="https://img.icons8.com/?size=24&id=44024&format=png&color=E6EEF7" alt="Menú" class="icono-menu">
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-end">
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="../index.html">Inicio</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="objetivos.html">Objetivo</a></li>
@@ -43,8 +43,8 @@
         </nav>
     </header>
 
-    <main>
-        <h1>Servicios de RAIN</h1>
+    <main id="main">
+        <h1 class="page-title">Servicios de RAIN</h1>
         <p class="hero-subtitle">Soluciones a medida para la ciencia</p>
     </main>
 

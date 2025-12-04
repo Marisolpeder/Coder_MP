@@ -1,0 +1,44 @@
+// Tipografía Global
+h1 {
+    font-size: clamp(32px, 6vw, 64px);
+    margin-bottom: 12px;
+    letter-spacing: 4px;
+    background: $gradient-accent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 900;
+    text-align: center;
+    @include animate-entry(0.1s); // Animación agregada
+}
+
+h2 {
+    color: $color-text;
+    font-weight: 700;
+    text-align: center;
+    margin: 40px 0 20px;
+}
+
+p {
+    line-height: 1.8;
+    color: $color-text-muted;
+    max-width: 900px;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: rgba($color-text, 0.8);
+    margin-bottom: 32px;
+    @include animate-entry(0.3s);
+}
+
+.separador {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(125, 211, 252, 0.5), transparent);
+    margin: 50px auto;
+    max-width: 900px;
+}

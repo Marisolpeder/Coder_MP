@@ -1,0 +1,186 @@
+// ==========================================================================
+// # OPTIMIZACIÓN
+// Configuraciones para optimización de CSS y rendimiento
+// ==========================================================================
+
+@use 'sass:map';
+
+// ==========================================================================
+// # PURGECSS CONFIG
+// Configuración para eliminar CSS no utilizado
+// ==========================================================================
+$purgecss: (
+  content: [
+    "./index.html",
+    "./pags/*.html",
+    "./js/**/*.js"
+  ],
+  whitelist: [
+    "active",
+    "show",
+    "collapsed",
+    "fade",
+    "modal-backdrop",
+    "carousel-item-next",
+    "carousel-item-prev",
+    "carousel-item-left",
+    "carousel-item-right",
+    // Clases de animación
+    "fade-in",
+    "slide-in"
+  ],
+  whitelistPatterns: [
+    /^carousel/,
+    /^modal/,
+    /^fade$/,
+    /^show$/,
+    /^collapsing$/,
+    /^collapsed$/,
+    /^dropdown/,
+    /^btn-/,
+    /^bg-/,
+    /^text-/,
+    /^border-/,
+    /^is-/,
+    /^has-/
+  ]
+);
+
+// ==========================================================================
+// # AUTOPREFIXER CONFIG
+// Configuración para prefijos de navegadores
+// ==========================================================================
+$autoprefixer: (
+  "overrideBrowserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+);
+
+// ==========================================================================
+// # CSSNANO CONFIG
+// Configuración para minificación de CSS
+// ==========================================================================
+$cssnano: (
+  preset: [
+    "default",
+    {
+      discardComments: {
+        removeAll: true
+      },
+      normalizeWhitespace: false,
+      colormin: {
+        exclude: true
+      },
+      // Optimización de propiedades CSS
+      cssDeclarationSorter: true,
+      // Eliminar reglas duplicadas
+      discardDuplicates: true,
+      // Optimizar valores de tiempo
+      minifySelectors: true
+    }
+  ]
+);
+
+// ==========================================================================
+// # SOURCEMAPS CONFIG
+// Configuración para mapeos de código fuente
+// ==========================================================================
+$sourceMaps: (
+  sourceMap: true,
+  sourceMapContents: false,
+  sourceMapEmbed: false,
+  sourceMapRoot: "../"
+);
+
+// ==========================================================================
+// # PERFORMANCE OPTIMIZATIONS
+// Configuraciones varias para optimización de rendimiento
+// ==========================================================================
+$performance: (
+  // Habilitar/deshabilitar optimizaciones
+  enabled: true,
+  
+  // Configuración de imágenes
+  images: (
+    // Habilitar carga perezosa de imágenes
+    lazyLoading: true,
+    // Optimización de imágenes
+    optimize: true,
+    // Formatos modernos (WebP, AVIF)
+    modernFormats: true
+  ),
+  
+  // Configuración de fuentes
+  fonts: (
+    // Precargar fuentes críticas
+    preload: true,
+    // Mostrar texto mientras carga la fuente
+    fontDisplay: 'swap',
+    // Subconjunto de caracteres
+    subset: true
+  ),
+  
+  // Configuración de recursos estáticos
+  assets: (
+    // Versión de caché para recursos estáticos
+    versioning: true,
+    // Comprimir recursos estáticos
+    compress: true
+  )
+);
+
+// ==========================================================================
+// # MIXIN DE OPTIMIZACIÓN
+// Mixin para aplicar estilos de optimización
+// ==========================================================================
+@mixin optimize($property, $value) {
+  @if $property == 'transition' {
+    transition: $value;
+    // Mejor rendimiento para transform y opacity
+    @if str-index($value, 'transform') or str-index($value, 'opacity') {
+      will-change: transform, opacity;
+    }
+  }
+  
+  @if $property == 'backdrop-filter' {
+    // Mejor soporte para filtros de fondo
+    @supports (backdrop-filter: blur(1px)) {
+      backdrop-filter: $value;
+    }
+    
+    @supports not (backdrop-filter: blur(1px)) {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+
+// ==========================================================================
+// # CLASES DE OPTIMIZACIÓN
+// Clases de utilidad para optimización
+// ==========================================================================
+.optimize-performance {
+  // Mejora el rendimiento de renderizado
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  
+  // Optimización para dispositivos táctiles
+  -webkit-tap-highlight-color: transparent;
+  
+  // Mejora el rendimiento de desplazamiento
+  -webkit-overflow-scrolling: touch;
+  
+  // Optimización de fuentes
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  // Mejora el rendimiento de animaciones
+  @media (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
+}

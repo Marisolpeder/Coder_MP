@@ -1,0 +1,587 @@
+// Estilos base para tarjetas
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: $card-bg;
+  background-clip: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+  
+  // Efecto hover
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-color: rgba($color-accent-start, 0.2);
+  }
+  
+  // Imagen de la tarjeta
+  .card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    
+    &-top {
+      border-top-left-radius: calc(1rem - 1px);
+      border-top-right-radius: calc(1rem - 1px);
+    }
+    
+    &-bottom {
+      border-bottom-left-radius: calc(1rem - 1px);
+      border-bottom-right-radius: calc(1rem - 1px);
+    }
+  }
+  
+  // Cuerpo de la tarjeta
+  .card-body {
+    flex: 1 1 auto;
+    padding: 1.75rem;
+    
+    // Espaciado reducido para tarjetas pequeñas
+    &-sm {
+      padding: 1.25rem;
+    }
+  }
+  
+  // Encabezado de la tarjeta
+  .card-header {
+    padding: 1.25rem 1.75rem;
+    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    
+    &:first-child {
+      border-radius: calc(1rem - 1px) calc(1rem - 1px) 0 0;
+    }
+  }
+  
+  // Pie de la tarjeta
+  .card-footer {
+    padding: 1.25rem 1.75rem;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    
+    &:last-child {
+      border-radius: 0 0 calc(1rem - 1px) calc(1rem - 1px);
+    }
+  }
+  
+  // Título de la tarjeta
+  .card-title {
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: $color-text;
+    
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      
+      &:hover {
+        color: $color-accent-start;
+      }
+    }
+  }
+  
+  // Subtítulo de la tarjeta
+  .card-subtitle {
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+    color: $color-text-muted;
+    font-size: 0.875rem;
+  }
+  
+  // Texto de la tarjeta
+  .card-text {
+    margin-bottom: 1.5rem;
+    color: $color-text-muted;
+    line-height: 1.7;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  // Enlace de la tarjeta
+  .card-link {
+    color: $color-accent-start;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    
+    &:hover {
+      color: lighten($color-accent-start, 10%);
+      text-decoration: underline;
+    }
+    
+    + .card-link {
+      margin-left: 1.5rem;
+    }
+  }
+  
+  // Imagen superpuesta
+  .card-img-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1.75rem;
+    border-radius: calc(1rem - 1px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+    
+    .card-title, 
+    .card-text {
+      color: white;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    }
+  }
+  
+  // Badge de la tarjeta
+  .card-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 50px;
+    z-index: 1;
+    
+    &-top-left {
+      left: 1rem;
+      right: auto;
+    }
+    
+    &-bottom-left {
+      top: auto;
+      bottom: 1rem;
+      left: 1rem;
+      right: auto;
+    }
+    
+    &-bottom-right {
+      top: auto;
+      bottom: 1rem;
+    }
+  }
+  
+  // Tarjeta con borde
+  &-bordered {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    &:hover {
+      border-color: $color-accent-start;
+    }
+  }
+  
+  // Tarjeta con sombra
+  &-shadow {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    
+    &:hover {
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  // Tarjeta con efecto hover
+  &-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    &:hover {
+      transform: translateY(-8px) scale(1.02);
+    }
+  }
+  
+  // Tarjeta con gradiente
+  &-gradient {
+    background: linear-gradient(135deg, rgba($color-accent-start, 0.1), rgba($color-accent-end, 0.05));
+    border: none;
+  }
+  
+  // Tarjeta con efecto vidrio
+  &-glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  // Tarjeta de equipo
+  &-team {
+    text-align: center;
+    border: none;
+    
+    .card-img {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      margin: -75px auto 1.5rem;
+      border: 5px solid $card-bg;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card-body {
+      padding-top: 5rem;
+    }
+    
+    .team-position {
+      color: $color-accent-start;
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+      
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.05);
+        color: $color-text-muted;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background: $gradient-accent;
+          color: white;
+          transform: translateY(-3px);
+        }
+      }
+    }
+  }
+  
+  // Tarjeta de precios
+  &-pricing {
+    text-align: center;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    
+    .price {
+      font-size: 3rem;
+      font-weight: 700;
+      color: $color-accent-start;
+      margin: 1.5rem 0;
+      line-height: 1;
+      
+      span {
+        font-size: 1rem;
+        font-weight: 400;
+        color: $color-text-muted;
+      }
+    }
+    
+    .card-body {
+      padding: 2.5rem 2rem;
+    }
+    
+    .list-unstyled {
+      text-align: left;
+      margin: 2rem 0;
+      
+      li {
+        padding: 0.5rem 0;
+        color: $color-text-muted;
+        
+        &::before {
+          content: '✓';
+          color: $color-accent-start;
+          font-weight: bold;
+          display: inline-block;
+          margin-right: 0.5rem;
+        }
+        
+        &.disabled {
+          opacity: 0.5;
+          text-decoration: line-through;
+          
+          &::before {
+            content: '×';
+          }
+        }
+      }
+    }
+    
+    // Destacar tarjeta de precios
+    &.featured {
+      border-color: $color-accent-start;
+      transform: scale(1.05);
+      z-index: 1;
+      
+      .card-header {
+        background: $gradient-accent;
+        color: white;
+        border-bottom: none;
+      }
+      
+      .btn {
+        background: $gradient-accent;
+        color: white;
+        border: none;
+      }
+    }
+  }
+  
+  // Tarjeta de testimonio
+  &-testimonial {
+    border: none;
+    background: rgba(255, 255, 255, 0.03);
+    
+    .card-body {
+      position: relative;
+      padding: 2rem;
+      
+      &::before {
+        content: '\201C';
+        font-family: Georgia, serif;
+        font-size: 5rem;
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        line-height: 1;
+        color: rgba($color-accent-start, 0.1);
+        z-index: 0;
+      }
+      
+      .card-text {
+        position: relative;
+        z-index: 1;
+        font-style: italic;
+        margin-bottom: 1.5rem;
+      }
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      margin-top: 1.5rem;
+      
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 1rem;
+        border: 3px solid rgba($color-accent-start, 0.2);
+      }
+      
+      .author-info {
+        h6 {
+          margin: 0;
+          color: $color-text;
+          font-weight: 600;
+        }
+        
+        p {
+          margin: 0;
+          font-size: 0.875rem;
+          color: $color-accent-start;
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+  
+  // Tarjeta de estadísticas
+  &-stats {
+    text-align: center;
+    border: none;
+    background: rgba(255, 255, 255, 0.03);
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: $color-accent-start;
+      margin: 1rem 0 0.5rem;
+      line-height: 1.2;
+    }
+    
+    .stat-label {
+      color: $color-text-muted;
+      font-size: 0.9375rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0;
+    }
+    
+    .stat-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: $color-accent-start;
+      background: rgba($color-accent-start, 0.1);
+      border-radius: 50%;
+    }
+  }
+}
+
+// Grupo de tarjetas
+.card-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  
+  @include media-breakpoint-up(md) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+    .card {
+      flex: 1 0 0%;
+      margin-bottom: 0;
+      
+      &:not(:last-child) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        margin-right: -1px;
+      }
+      
+      &:not(:first-child) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+}
+
+// Grid de tarjetas
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  
+  @include media-breakpoint-down(sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Efecto de hover para tarjetas
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// Clases de utilidad para tarjetas
+.card {
+  // Colores de fondo
+  @each $color, $value in $theme-colors {
+    &-#{$color} {
+      background-color: $value;
+      border-color: darken($value, 5%);
+      
+      .card-title,
+      .card-text,
+      .card-link {
+        color: color-contrast($value);
+      }
+      
+      .card-link:hover {
+        color: rgba(color-contrast($value), 0.8);
+      }
+    }
+  }
+  
+  // Bordes coloreados
+  @each $color, $value in $theme-colors {
+    &-border-#{$color} {
+      border-top: 3px solid $value;
+    }
+  }
+  
+  // Sombras
+  &-shadow-sm {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+  }
+  
+  &-shadow {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  }
+  
+  &-shadow-lg {
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+  }
+  
+  // Tamaños
+  &-sm {
+    .card-body {
+      padding: 1.25rem;
+    }
+  }
+  
+  &-lg {
+    .card-body {
+      padding: 2.5rem;
+    }
+  }
+}
+
+// Efecto de tarjeta con borde animado
+.card-border-animate {
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: $gradient-accent;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+    z-index: 1;
+  }
+  
+  &:hover::before {
+    transform: scaleX(1);
+  }
+}
+
+// Efecto de tarjeta con imagen que se escala
+.card-img-scale {
+  overflow: hidden;
+  
+  .card-img {
+    transition: transform 0.5s ease;
+  }
+  
+  &:hover .card-img {
+    transform: scale(1.05);
+  }
+}
+
+// Tarjeta con efecto de cristal
+.card-glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  
+  .card-header,
+  .card-footer {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+}

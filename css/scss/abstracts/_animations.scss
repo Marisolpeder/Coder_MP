@@ -1,0 +1,72 @@
+// Animaciones base
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+// Clases de utilidad para animaciones
+.animate-fade-in {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-pulse {
+    animation: pulse 2s infinite;
+}
+
+// Efecto de hover suave
+@mixin hover-effect($scale: 1.05) {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    &:hover {
+        transform: scale($scale);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+}
+
+// Efecto de transición para enlaces
+@mixin link-transition($color) {
+    position: relative;
+    text-decoration: none;
+    color: $color;
+    transition: color 0.3s ease;
+    
+    &::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background-color: $color-accent-start;
+        transition: width 0.3s ease;
+    }
+    
+    &:hover {
+        color: $color-accent-start;
+        
+        &::after {
+            width: 100%;
+        }
+    }
+}
